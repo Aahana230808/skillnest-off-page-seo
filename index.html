@@ -2,20 +2,18 @@
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>SkillNest Academy | Learn Skills. Build Your Future.</title>
 
     <meta name="description"
-        content="SkillNest Academy offers practical online courses in digital marketing, SEO, business analytics, social media marketing and content marketing.">
+        content="SkillNest Academy helps learners develop practical, career-focused skills through accessible online courses.">
 
     <style>
 
         /* =========================
-           BASIC RESET
+           RESET
         ========================= */
 
         * {
@@ -26,7 +24,7 @@
         }
 
         body {
-            font-family: Arial, sans-serif;
+            font-family: Arial, Helvetica, sans-serif;
             color: #1e293b;
             background: #ffffff;
             line-height: 1.6;
@@ -40,16 +38,17 @@
         header {
             background: #ffffff;
             border-bottom: 1px solid #e5e7eb;
-
             position: sticky;
             top: 0;
             z-index: 1000;
-
-            padding: 8px 7%;
         }
 
         nav {
-            min-height: 90px;
+            width: 86%;
+            max-width: 1400px;
+            margin: auto;
+
+            min-height: 100px;
 
             display: flex;
             align-items: center;
@@ -58,7 +57,7 @@
 
 
         /* =========================
-           LARGE LOGO
+           SKILLNEST LOGO
         ========================= */
 
         .logo {
@@ -67,31 +66,22 @@
 
             display: flex;
             align-items: center;
-            justify-content: center;
-
-            overflow: hidden;
-
-            text-decoration: none;
+            justify-content: flex-start;
 
             flex-shrink: 0;
+
+            text-decoration: none;
         }
 
         .logo img {
-            width: 190px;
-            height: 90px;
+            width: 180px;
+            height: 85px;
 
             display: block;
 
             object-fit: contain;
 
-            /*
-             * The original logo image contains
-             * a lot of empty space.
-             * This zooms the actual logo.
-             */
-            transform: scale(2.4);
-
-            transform-origin: center center;
+            object-position: center;
         }
 
 
@@ -100,12 +90,12 @@
         ========================= */
 
         nav ul {
+            list-style: none;
+
             display: flex;
             align-items: center;
 
-            list-style: none;
-
-            gap: 30px;
+            gap: 32px;
         }
 
         nav ul li a {
@@ -116,7 +106,7 @@
             font-size: 16px;
             font-weight: 600;
 
-            transition: 0.3s;
+            transition: 0.3s ease;
         }
 
         nav ul li a:hover {
@@ -129,15 +119,15 @@
         ========================= */
 
         .hero {
+            min-height: 480px;
+
+            padding: 85px 7%;
+
             background: linear-gradient(
                 135deg,
                 #eff6ff,
                 #ffffff
             );
-
-            min-height: 500px;
-
-            padding: 90px 7%;
 
             display: flex;
 
@@ -149,7 +139,7 @@
         }
 
         .hero-content {
-            max-width: 650px;
+            max-width: 680px;
         }
 
         .hero h1 {
@@ -157,9 +147,9 @@
 
             line-height: 1.15;
 
-            margin-bottom: 20px;
-
             color: #1e293b;
+
+            margin-bottom: 20px;
         }
 
         .hero h1 span {
@@ -172,6 +162,8 @@
             color: #64748b;
 
             margin-bottom: 30px;
+
+            max-width: 650px;
         }
 
 
@@ -196,7 +188,7 @@
 
             margin-right: 10px;
 
-            transition: 0.3s;
+            transition: 0.3s ease;
         }
 
         .btn:hover {
@@ -215,11 +207,11 @@
         ========================= */
 
         .hero-card {
-            background: #ffffff;
-
             width: 350px;
 
             padding: 40px;
+
+            background: #ffffff;
 
             border-radius: 18px;
 
@@ -232,17 +224,21 @@
         }
 
         .hero-card .icon {
-            font-size: 60px;
+            font-size: 58px;
 
             margin-bottom: 15px;
         }
 
         .hero-card h2 {
             margin-bottom: 10px;
+
+            font-size: 24px;
         }
 
         .hero-card p {
             color: #64748b;
+
+            margin: 0;
         }
 
 
@@ -268,6 +264,8 @@
 
         .section-title p {
             color: #64748b;
+
+            font-size: 16px;
         }
 
 
@@ -280,6 +278,10 @@
         }
 
         .course-grid {
+            max-width: 1400px;
+
+            margin: auto;
+
             display: grid;
 
             grid-template-columns:
@@ -297,7 +299,7 @@
 
             border: 1px solid #e5e7eb;
 
-            transition: 0.3s;
+            transition: 0.3s ease;
         }
 
         .course-card:hover {
@@ -314,6 +316,8 @@
         }
 
         .course-card h3 {
+            font-size: 20px;
+
             margin-bottom: 10px;
         }
 
@@ -333,10 +337,14 @@
 
 
         /* =========================
-           WHY CHOOSE US
+           WHY US
         ========================= */
 
         .features {
+            max-width: 1200px;
+
+            margin: auto;
+
             display: grid;
 
             grid-template-columns:
@@ -357,10 +365,12 @@
             margin-bottom: 15px;
         }
 
+        .feature h3 {
+            margin-bottom: 10px;
+        }
+
         .feature p {
             color: #64748b;
-
-            margin-top: 10px;
         }
 
 
@@ -413,6 +423,8 @@
 
         .cta .btn {
             background: #f97316;
+
+            margin: 0;
         }
 
 
@@ -445,40 +457,33 @@
            TABLET
         ========================= */
 
-        @media (max-width: 850px) {
-
-            header {
-                padding: 6px 5%;
-            }
+        @media (max-width: 900px) {
 
             nav {
-                min-height: 75px;
+                width: 90%;
+
+                min-height: 90px;
             }
-
-
-            /* Tablet logo */
 
             .logo {
                 width: 155px;
-                height: 75px;
+                height: 80px;
             }
 
             .logo img {
-                width: 155px;
+                width: 150px;
                 height: 75px;
 
-                transform: scale(2.3);
+                object-fit: contain;
             }
 
-
             nav ul {
-                gap: 15px;
+                gap: 18px;
             }
 
             nav ul li a {
                 font-size: 14px;
             }
-
 
             .hero {
                 flex-direction: column;
@@ -488,8 +493,8 @@
                 padding: 70px 5%;
             }
 
-            .hero h1 {
-                font-size: 40px;
+            .hero-content {
+                max-width: 700px;
             }
 
             .hero-card {
@@ -498,10 +503,14 @@
                 max-width: 350px;
             }
 
+            .course-grid {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
 
-            .course-grid,
             .features {
-                grid-template-columns: 1fr;
+                grid-template-columns:
+                    repeat(2, 1fr);
             }
         }
 
@@ -510,18 +519,13 @@
            MOBILE
         ========================= */
 
-        @media (max-width: 600px) {
-
-            header {
-                padding: 5px 4%;
-            }
+        @media (max-width: 650px) {
 
             nav {
-                min-height: 65px;
+                width: 94%;
+
+                min-height: 75px;
             }
-
-
-            /* Mobile logo */
 
             .logo {
                 width: 125px;
@@ -529,34 +533,31 @@
             }
 
             .logo img {
-                width: 125px;
-                height: 65px;
+                width: 120px;
+                height: 62px;
 
-                transform: scale(2.2);
+                object-fit: contain;
             }
 
-
             nav ul {
-                gap: 9px;
+                gap: 10px;
             }
 
             nav ul li a {
-                font-size: 12px;
+                font-size: 11px;
             }
-
 
             .hero {
                 padding: 55px 5%;
             }
 
             .hero h1 {
-                font-size: 34px;
+                font-size: 36px;
             }
 
             .hero p {
                 font-size: 16px;
             }
-
 
             .btn {
                 display: block;
@@ -566,13 +567,20 @@
                 margin: 10px 0;
             }
 
-
             section {
                 padding: 55px 5%;
             }
 
             .section-title h2 {
                 font-size: 30px;
+            }
+
+            .course-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
             }
 
             .cta h2 {
@@ -582,25 +590,23 @@
 
 
         /* =========================
-           SMALL PHONES
+           VERY SMALL PHONES
         ========================= */
 
-        @media (max-width: 480px) {
+        @media (max-width: 450px) {
 
             nav {
-                min-height: 60px;
+                min-height: 65px;
             }
 
             .logo {
-                width: 105px;
+                width: 100px;
                 height: 60px;
             }
 
             .logo img {
-                width: 105px;
-                height: 60px;
-
-                transform: scale(2.1);
+                width: 98px;
+                height: 58px;
             }
 
             nav ul {
@@ -608,7 +614,7 @@
             }
 
             nav ul li a {
-                font-size: 10px;
+                font-size: 9px;
             }
 
             .hero h1 {
@@ -625,7 +631,7 @@
 
 
     <!-- =========================
-         HEADER
+         NAVIGATION
     ========================= -->
 
     <header>
@@ -669,6 +675,7 @@
         </nav>
 
     </header>
+
 
 
     <!-- =========================
@@ -734,8 +741,8 @@
 
             <p>
 
-                Build in-demand skills and take
-                the next step toward your career goals.
+                Build in-demand skills and take the
+                next step toward your career goals.
 
             </p>
 
@@ -744,8 +751,9 @@
     </section>
 
 
+
     <!-- =========================
-         COURSES
+         POPULAR COURSES
     ========================= -->
 
     <section
@@ -942,6 +950,7 @@
     </section>
 
 
+
     <!-- =========================
          WHY CHOOSE US
     ========================= -->
@@ -1029,6 +1038,7 @@
     </section>
 
 
+
     <!-- =========================
          ABOUT
     ========================= -->
@@ -1072,8 +1082,9 @@
     </section>
 
 
+
     <!-- =========================
-         CTA
+         CONTACT / CTA
     ========================= -->
 
     <section
@@ -1101,6 +1112,7 @@
         </a>
 
     </section>
+
 
 
     <!-- =========================
