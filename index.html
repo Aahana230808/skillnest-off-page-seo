@@ -1,14 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>SkillNest Academy | Learn Skills. Build Your Future.</title>
 
-    <meta name="description" content="SkillNest Academy offers practical online courses in digital marketing, SEO, business analytics, social media marketing and content marketing.">
+    <meta name="description"
+        content="SkillNest Academy offers practical online courses in digital marketing, SEO, business analytics, social media marketing and content marketing.">
 
     <style>
+
+        /* =========================
+           BASIC RESET
+        ========================= */
+
         * {
             margin: 0;
             padding: 0;
@@ -23,6 +32,7 @@
             line-height: 1.6;
         }
 
+
         /* =========================
            NAVIGATION
         ========================= */
@@ -30,48 +40,82 @@
         header {
             background: #ffffff;
             border-bottom: 1px solid #e5e7eb;
-            padding: 10px 7%;
+
             position: sticky;
             top: 0;
             z-index: 1000;
+
+            padding: 8px 7%;
         }
 
         nav {
+            min-height: 90px;
+
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            min-height: 70px;
+            justify-content: space-between;
         }
 
-        /* LARGE LOGO */
+
+        /* =========================
+           LARGE LOGO
+        ========================= */
 
         .logo {
+            width: 190px;
+            height: 90px;
+
             display: flex;
             align-items: center;
+            justify-content: center;
+
+            overflow: hidden;
+
             text-decoration: none;
-            height: 70px;
+
             flex-shrink: 0;
         }
 
         .logo img {
+            width: 190px;
+            height: 90px;
+
             display: block;
-            width: auto;
-            height: 70px;
-            max-width: 300px;
+
             object-fit: contain;
+
+            /*
+             * The original logo image contains
+             * a lot of empty space.
+             * This zooms the actual logo.
+             */
+            transform: scale(2.4);
+
+            transform-origin: center center;
         }
+
+
+        /* =========================
+           NAVIGATION LINKS
+        ========================= */
 
         nav ul {
             display: flex;
-            list-style: none;
-            gap: 28px;
             align-items: center;
+
+            list-style: none;
+
+            gap: 30px;
         }
 
         nav ul li a {
-            text-decoration: none;
             color: #1e293b;
+
+            text-decoration: none;
+
+            font-size: 16px;
             font-weight: 600;
+
             transition: 0.3s;
         }
 
@@ -79,17 +123,29 @@
             color: #2563eb;
         }
 
+
         /* =========================
            HERO SECTION
         ========================= */
 
         .hero {
-            background: linear-gradient(135deg, #eff6ff, #ffffff);
+            background: linear-gradient(
+                135deg,
+                #eff6ff,
+                #ffffff
+            );
+
+            min-height: 500px;
+
             padding: 90px 7%;
+
             display: flex;
+
             align-items: center;
+
             justify-content: space-between;
-            gap: 50px;
+
+            gap: 60px;
         }
 
         .hero-content {
@@ -98,8 +154,11 @@
 
         .hero h1 {
             font-size: 52px;
+
             line-height: 1.15;
+
             margin-bottom: 20px;
+
             color: #1e293b;
         }
 
@@ -109,24 +168,40 @@
 
         .hero p {
             font-size: 18px;
+
             color: #64748b;
+
             margin-bottom: 30px;
         }
 
+
+        /* =========================
+           BUTTONS
+        ========================= */
+
         .btn {
             display: inline-block;
+
             padding: 14px 25px;
+
             background: #2563eb;
-            color: white;
+
+            color: #ffffff;
+
             text-decoration: none;
+
             border-radius: 8px;
+
             font-weight: bold;
+
             margin-right: 10px;
+
             transition: 0.3s;
         }
 
         .btn:hover {
             transform: translateY(-2px);
+
             opacity: 0.9;
         }
 
@@ -134,17 +209,31 @@
             background: #f97316;
         }
 
+
+        /* =========================
+           HERO CARD
+        ========================= */
+
         .hero-card {
-            background: white;
-            padding: 35px;
-            border-radius: 18px;
-            box-shadow: 0 15px 40px rgba(37, 99, 235, 0.12);
+            background: #ffffff;
+
             width: 350px;
+
+            padding: 40px;
+
+            border-radius: 18px;
+
             text-align: center;
+
+            box-shadow:
+                0 15px 40px rgba(37, 99, 235, 0.12);
+
+            flex-shrink: 0;
         }
 
         .hero-card .icon {
             font-size: 60px;
+
             margin-bottom: 15px;
         }
 
@@ -156,6 +245,7 @@
             color: #64748b;
         }
 
+
         /* =========================
            GENERAL SECTIONS
         ========================= */
@@ -166,17 +256,20 @@
 
         .section-title {
             text-align: center;
+
             margin-bottom: 45px;
         }
 
         .section-title h2 {
             font-size: 36px;
+
             margin-bottom: 10px;
         }
 
         .section-title p {
             color: #64748b;
         }
+
 
         /* =========================
            COURSES
@@ -188,25 +281,35 @@
 
         .course-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
             gap: 25px;
         }
 
         .course-card {
-            background: white;
+            background: #ffffff;
+
             padding: 28px;
+
             border-radius: 14px;
+
             border: 1px solid #e5e7eb;
+
             transition: 0.3s;
         }
 
         .course-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+
+            box-shadow:
+                0 10px 30px rgba(0, 0, 0, 0.08);
         }
 
         .course-card .emoji {
             font-size: 40px;
+
             margin-bottom: 15px;
         }
 
@@ -216,14 +319,18 @@
 
         .course-card p {
             color: #64748b;
+
             margin-bottom: 15px;
         }
 
         .course-link {
             color: #2563eb;
+
             font-weight: bold;
+
             text-decoration: none;
         }
+
 
         /* =========================
            WHY CHOOSE US
@@ -231,24 +338,31 @@
 
         .features {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
             gap: 30px;
         }
 
         .feature {
             text-align: center;
+
             padding: 25px;
         }
 
         .feature-icon {
             font-size: 45px;
+
             margin-bottom: 15px;
         }
 
         .feature p {
             color: #64748b;
+
             margin-top: 10px;
         }
+
 
         /* =========================
            ABOUT
@@ -260,15 +374,20 @@
 
         .about-content {
             max-width: 850px;
+
             margin: auto;
+
             text-align: center;
         }
 
         .about-content p {
             color: #64748b;
+
             font-size: 17px;
+
             margin-bottom: 15px;
         }
+
 
         /* =========================
            CTA
@@ -276,12 +395,15 @@
 
         .cta {
             background: #2563eb;
-            color: white;
+
+            color: #ffffff;
+
             text-align: center;
         }
 
         .cta h2 {
             font-size: 36px;
+
             margin-bottom: 15px;
         }
 
@@ -293,14 +415,18 @@
             background: #f97316;
         }
 
+
         /* =========================
            FOOTER
         ========================= */
 
         footer {
             background: #1e293b;
-            color: white;
+
+            color: #ffffff;
+
             padding: 35px 7%;
+
             text-align: center;
         }
 
@@ -310,8 +436,10 @@
 
         footer p {
             color: #cbd5e1;
+
             margin-top: 5px;
         }
+
 
         /* =========================
            TABLET
@@ -320,29 +448,43 @@
         @media (max-width: 850px) {
 
             header {
-                padding: 8px 5%;
+                padding: 6px 5%;
             }
 
             nav {
-                min-height: 58px;
+                min-height: 75px;
             }
 
+
+            /* Tablet logo */
+
             .logo {
-                height: 58px;
+                width: 155px;
+                height: 75px;
             }
 
             .logo img {
-                height: 58px;
-                max-width: 250px;
+                width: 155px;
+                height: 75px;
+
+                transform: scale(2.3);
             }
+
 
             nav ul {
                 gap: 15px;
             }
 
+            nav ul li a {
+                font-size: 14px;
+            }
+
+
             .hero {
                 flex-direction: column;
+
                 text-align: center;
+
                 padding: 70px 5%;
             }
 
@@ -352,14 +494,17 @@
 
             .hero-card {
                 width: 100%;
+
                 max-width: 350px;
             }
+
 
             .course-grid,
             .features {
                 grid-template-columns: 1fr;
             }
         }
+
 
         /* =========================
            MOBILE
@@ -368,29 +513,37 @@
         @media (max-width: 600px) {
 
             header {
-                padding: 6px 5%;
+                padding: 5px 4%;
             }
 
             nav {
-                min-height: 48px;
+                min-height: 65px;
             }
 
+
+            /* Mobile logo */
+
             .logo {
-                height: 48px;
+                width: 125px;
+                height: 65px;
             }
 
             .logo img {
-                height: 48px;
-                max-width: 210px;
+                width: 125px;
+                height: 65px;
+
+                transform: scale(2.2);
             }
 
+
             nav ul {
-                gap: 10px;
+                gap: 9px;
             }
 
             nav ul li a {
-                font-size: 13px;
+                font-size: 12px;
             }
+
 
             .hero {
                 padding: 55px 5%;
@@ -404,11 +557,15 @@
                 font-size: 16px;
             }
 
+
             .btn {
                 display: block;
+
                 width: 100%;
+
                 margin: 10px 0;
             }
+
 
             section {
                 padding: 55px 5%;
@@ -423,97 +580,163 @@
             }
         }
 
+
         /* =========================
-           SMALL MOBILE
+           SMALL PHONES
         ========================= */
 
         @media (max-width: 480px) {
 
+            nav {
+                min-height: 60px;
+            }
+
             .logo {
-                height: 44px;
+                width: 105px;
+                height: 60px;
             }
 
             .logo img {
-                height: 44px;
-                max-width: 190px;
+                width: 105px;
+                height: 60px;
+
+                transform: scale(2.1);
             }
 
             nav ul {
-                gap: 7px;
+                gap: 6px;
             }
 
             nav ul li a {
-                font-size: 11px;
+                font-size: 10px;
             }
 
             .hero h1 {
                 font-size: 30px;
             }
         }
+
     </style>
+
 </head>
+
 
 <body>
 
-    <!-- HEADER -->
+
+    <!-- =========================
+         HEADER
+    ========================= -->
 
     <header>
+
         <nav>
 
             <a href="#home" class="logo">
-                <img src="logo.png" alt="SkillNest Academy Logo">
+
+                <img
+                    src="logo.png"
+                    alt="SkillNest Academy Logo"
+                >
+
             </a>
 
+
             <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#courses">Courses</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#why-us">Why Us</a></li>
-                <li><a href="#contact">Contact</a></li>
+
+                <li>
+                    <a href="#home">Home</a>
+                </li>
+
+                <li>
+                    <a href="#courses">Courses</a>
+                </li>
+
+                <li>
+                    <a href="#about">About</a>
+                </li>
+
+                <li>
+                    <a href="#why-us">Why Us</a>
+                </li>
+
+                <li>
+                    <a href="#contact">Contact</a>
+                </li>
+
             </ul>
 
         </nav>
+
     </header>
 
 
-    <!-- HERO -->
+    <!-- =========================
+         HERO
+    ========================= -->
 
-    <section class="hero" id="home">
+    <section
+        class="hero"
+        id="home"
+    >
 
         <div class="hero-content">
 
             <h1>
-                Learn Skills.<br>
-                <span>Build Your Future.</span>
+
+                Learn Skills.
+
+                <br>
+
+                <span>
+                    Build Your Future.
+                </span>
+
             </h1>
 
+
             <p>
-                SkillNest Academy helps learners develop practical,
-                career-focused skills through accessible and engaging
-                online courses.
+
+                SkillNest Academy helps learners develop
+                practical, career-focused skills through
+                accessible and engaging online courses.
+
             </p>
 
-            <a href="#courses" class="btn">
+
+            <a
+                href="#courses"
+                class="btn"
+            >
                 Explore Courses
             </a>
 
-            <a href="#about" class="btn btn-orange">
+
+            <a
+                href="#about"
+                class="btn btn-orange"
+            >
                 Learn More
             </a>
 
         </div>
 
+
         <div class="hero-card">
 
-            <div class="icon">🎓</div>
+            <div class="icon">
+                🎓
+            </div>
 
             <h2>
                 Learn. Grow. Succeed.
             </h2>
 
             <p>
-                Build in-demand skills and take the next step
-                toward your career goals.
+
+                Build in-demand skills and take
+                the next step toward your career goals.
+
             </p>
 
         </div>
@@ -521,9 +744,14 @@
     </section>
 
 
-    <!-- COURSES -->
+    <!-- =========================
+         COURSES
+    ========================= -->
 
-    <section class="courses" id="courses">
+    <section
+        class="courses"
+        id="courses"
+    >
 
         <div class="section-title">
 
@@ -532,27 +760,38 @@
             </h2>
 
             <p>
-                Develop practical skills that can help you grow professionally.
+                Develop practical skills that can help
+                you grow professionally.
             </p>
 
         </div>
 
+
         <div class="course-grid">
+
 
             <div class="course-card">
 
-                <div class="emoji">📈</div>
+                <div class="emoji">
+                    📈
+                </div>
 
                 <h3>
                     Digital Marketing
                 </h3>
 
                 <p>
-                    Learn digital marketing fundamentals, campaigns,
-                    analytics and online growth strategies.
+
+                    Learn digital marketing fundamentals,
+                    campaigns, analytics and online
+                    growth strategies.
+
                 </p>
 
-                <a href="#" class="course-link">
+                <a
+                    href="#"
+                    class="course-link"
+                >
                     Learn More →
                 </a>
 
@@ -561,18 +800,26 @@
 
             <div class="course-card">
 
-                <div class="emoji">🔍</div>
+                <div class="emoji">
+                    🔍
+                </div>
 
                 <h3>
                     Search Engine Optimization
                 </h3>
 
                 <p>
-                    Understand keyword research, on-page SEO,
-                    technical SEO and off-page optimization.
+
+                    Understand keyword research,
+                    on-page SEO, technical SEO
+                    and off-page optimization.
+
                 </p>
 
-                <a href="#" class="course-link">
+                <a
+                    href="#"
+                    class="course-link"
+                >
                     Learn More →
                 </a>
 
@@ -581,18 +828,26 @@
 
             <div class="course-card">
 
-                <div class="emoji">📱</div>
+                <div class="emoji">
+                    📱
+                </div>
 
                 <h3>
                     Social Media Marketing
                 </h3>
 
                 <p>
-                    Learn how to create engaging content and
-                    develop effective social media campaigns.
+
+                    Learn how to create engaging
+                    content and develop effective
+                    social media campaigns.
+
                 </p>
 
-                <a href="#" class="course-link">
+                <a
+                    href="#"
+                    class="course-link"
+                >
                     Learn More →
                 </a>
 
@@ -601,18 +856,26 @@
 
             <div class="course-card">
 
-                <div class="emoji">📊</div>
+                <div class="emoji">
+                    📊
+                </div>
 
                 <h3>
                     Business Analytics
                 </h3>
 
                 <p>
-                    Discover how data and analytics can support
-                    better business decisions.
+
+                    Discover how data and analytics
+                    can support better business
+                    decisions.
+
                 </p>
 
-                <a href="#" class="course-link">
+                <a
+                    href="#"
+                    class="course-link"
+                >
                     Learn More →
                 </a>
 
@@ -621,18 +884,26 @@
 
             <div class="course-card">
 
-                <div class="emoji">✍️</div>
+                <div class="emoji">
+                    ✍️
+                </div>
 
                 <h3>
                     Content Marketing
                 </h3>
 
                 <p>
-                    Learn to create valuable content that attracts,
-                    engages and converts audiences.
+
+                    Learn to create valuable content
+                    that attracts, engages and
+                    converts audiences.
+
                 </p>
 
-                <a href="#" class="course-link">
+                <a
+                    href="#"
+                    class="course-link"
+                >
                     Learn More →
                 </a>
 
@@ -641,18 +912,26 @@
 
             <div class="course-card">
 
-                <div class="emoji">💼</div>
+                <div class="emoji">
+                    💼
+                </div>
 
                 <h3>
                     Career Skills
                 </h3>
 
                 <p>
-                    Build communication, professional and
-                    workplace skills for career success.
+
+                    Build communication, professional
+                    and workplace skills for
+                    career success.
+
                 </p>
 
-                <a href="#" class="course-link">
+                <a
+                    href="#"
+                    class="course-link"
+                >
                     Learn More →
                 </a>
 
@@ -663,7 +942,9 @@
     </section>
 
 
-    <!-- WHY CHOOSE US -->
+    <!-- =========================
+         WHY CHOOSE US
+    ========================= -->
 
     <section id="why-us">
 
@@ -674,12 +955,15 @@
             </h2>
 
             <p>
-                A learning experience designed around practical skills.
+                A learning experience designed around
+                practical skills.
             </p>
 
         </div>
 
+
         <div class="features">
+
 
             <div class="feature">
 
@@ -692,8 +976,10 @@
                 </h3>
 
                 <p>
-                    Learn concepts through practical and
-                    career-oriented examples.
+
+                    Learn concepts through practical
+                    and career-oriented examples.
+
                 </p>
 
             </div>
@@ -710,8 +996,10 @@
                 </h3>
 
                 <p>
-                    Develop skills that are relevant to
-                    today's digital workplace.
+
+                    Develop skills that are relevant
+                    to today's digital workplace.
+
                 </p>
 
             </div>
@@ -728,8 +1016,10 @@
                 </h3>
 
                 <p>
-                    Access learning resources online and
-                    study at your own pace.
+
+                    Access learning resources online
+                    and study at your own pace.
+
                 </p>
 
             </div>
@@ -739,9 +1029,14 @@
     </section>
 
 
-    <!-- ABOUT -->
+    <!-- =========================
+         ABOUT
+    ========================= -->
 
-    <section class="about" id="about">
+    <section
+        class="about"
+        id="about"
+    >
 
         <div class="section-title">
 
@@ -751,17 +1046,25 @@
 
         </div>
 
+
         <div class="about-content">
 
             <p>
-                SkillNest Academy is an e-learning platform created
-                to help learners build practical digital and
+
+                SkillNest Academy is an e-learning
+                platform created to help learners
+                build practical digital and
                 professional skills.
+
             </p>
 
+
             <p>
-                Our goal is to make quality learning accessible,
-                engaging and focused on real-world applications.
+
+                Our goal is to make quality learning
+                accessible, engaging and focused
+                on real-world applications.
+
             </p>
 
         </div>
@@ -769,27 +1072,40 @@
     </section>
 
 
-    <!-- CALL TO ACTION -->
+    <!-- =========================
+         CTA
+    ========================= -->
 
-    <section class="cta" id="contact">
+    <section
+        class="cta"
+        id="contact"
+    >
 
         <h2>
             Ready to Grow Your Skills?
         </h2>
 
         <p>
-            Start learning today and take the next step toward
-            your career goals.
+
+            Start learning today and take the next
+            step toward your career goals.
+
         </p>
 
-        <a href="mailto:hello@skillnestacademy.com" class="btn">
+
+        <a
+            href="mailto:hello@skillnestacademy.com"
+            class="btn"
+        >
             Contact SkillNest
         </a>
 
     </section>
 
 
-    <!-- FOOTER -->
+    <!-- =========================
+         FOOTER
+    ========================= -->
 
     <footer>
 
@@ -807,5 +1123,7 @@
 
     </footer>
 
+
 </body>
+
 </html>
