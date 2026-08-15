@@ -30,7 +30,7 @@
         header {
             background: #ffffff;
             border-bottom: 1px solid #e5e7eb;
-            padding: 14px 7%;
+            padding: 10px 7%;
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -40,22 +40,24 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            min-height: 50px;
+            min-height: 70px;
         }
 
-        /* Logo */
+        /* LARGE LOGO */
+
         .logo {
             display: flex;
             align-items: center;
             text-decoration: none;
-            height: 50px;
+            height: 70px;
+            flex-shrink: 0;
         }
 
         .logo img {
             display: block;
             width: auto;
-            height: 50px;
-            max-width: 220px;
+            height: 70px;
+            max-width: 300px;
             object-fit: contain;
         }
 
@@ -63,6 +65,7 @@
             display: flex;
             list-style: none;
             gap: 28px;
+            align-items: center;
         }
 
         nav ul li a {
@@ -311,22 +314,26 @@
         }
 
         /* =========================
-           TABLET RESPONSIVENESS
+           TABLET
         ========================= */
 
         @media (max-width: 850px) {
 
             header {
-                padding: 12px 5%;
+                padding: 8px 5%;
+            }
+
+            nav {
+                min-height: 58px;
             }
 
             .logo {
-                height: 42px;
+                height: 58px;
             }
 
             .logo img {
-                height: 42px;
-                max-width: 180px;
+                height: 58px;
+                max-width: 250px;
             }
 
             nav ul {
@@ -355,26 +362,26 @@
         }
 
         /* =========================
-           MOBILE RESPONSIVENESS
+           MOBILE
         ========================= */
 
         @media (max-width: 600px) {
 
             header {
-                padding: 10px 5%;
+                padding: 6px 5%;
             }
 
             nav {
-                min-height: 40px;
+                min-height: 48px;
             }
 
             .logo {
-                height: 36px;
+                height: 48px;
             }
 
             .logo img {
-                height: 36px;
-                max-width: 150px;
+                height: 48px;
+                max-width: 210px;
             }
 
             nav ul {
@@ -417,14 +424,18 @@
         }
 
         /* =========================
-           SMALL MOBILE DEVICES
+           SMALL MOBILE
         ========================= */
 
         @media (max-width: 480px) {
 
+            .logo {
+                height: 44px;
+            }
+
             .logo img {
-                height: 34px;
-                max-width: 140px;
+                height: 44px;
+                max-width: 190px;
             }
 
             nav ul {
@@ -444,9 +455,7 @@
 
 <body>
 
-    <!-- =========================
-         HEADER / NAVIGATION
-    ========================= -->
+    <!-- HEADER -->
 
     <header>
         <nav>
@@ -467,9 +476,7 @@
     </header>
 
 
-    <!-- =========================
-         HERO SECTION
-    ========================= -->
+    <!-- HERO -->
 
     <section class="hero" id="home">
 
@@ -514,9 +521,7 @@
     </section>
 
 
-    <!-- =========================
-         COURSES SECTION
-    ========================= -->
+    <!-- COURSES -->
 
     <section class="courses" id="courses">
 
@@ -531,7 +536,6 @@
             </p>
 
         </div>
-
 
         <div class="course-grid">
 
@@ -659,9 +663,7 @@
     </section>
 
 
-    <!-- =========================
-         WHY CHOOSE US
-    ========================= -->
+    <!-- WHY CHOOSE US -->
 
     <section id="why-us">
 
@@ -676,7 +678,6 @@
             </p>
 
         </div>
-
 
         <div class="features">
 
@@ -738,9 +739,7 @@
     </section>
 
 
-    <!-- =========================
-         ABOUT SECTION
-    ========================= -->
+    <!-- ABOUT -->
 
     <section class="about" id="about">
 
@@ -751,7 +750,6 @@
             </h2>
 
         </div>
-
 
         <div class="about-content">
 
@@ -771,9 +769,7 @@
     </section>
 
 
-    <!-- =========================
-         CALL TO ACTION
-    ========================= -->
+    <!-- CALL TO ACTION -->
 
     <section class="cta" id="contact">
 
@@ -793,9 +789,7 @@
     </section>
 
 
-    <!-- =========================
-         FOOTER
-    ========================= -->
+    <!-- FOOTER -->
 
     <footer>
 
