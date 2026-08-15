@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SkillNest Academy | Learn Skills. Build Your Future.</title>
+
+    <meta name="description" content="SkillNest Academy offers practical online courses in digital marketing, SEO, business analytics, social media marketing and content marketing.">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            color: #1e293b;
+            background: #ffffff;
+            line-height: 1.6;
+        }
+
+        header {
+            background: #ffffff;
+            border-bottom: 1px solid #e5e7eb;
+            padding: 18px 7%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+            color: #2563eb;
+        }
+
+        .logo span {
+            color: #f97316;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 28px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #1e293b;
+            font-weight: 600;
+        }
+
+        nav a:hover {
+            color: #2563eb;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #eff6ff, #ffffff);
+            padding: 90px 7%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+        }
+
+        .hero-content {
+            max-width: 650px;
+        }
+
+        .hero h1 {
+            font-size: 52px;
+            line-height: 1.15;
+            margin-bottom: 20px;
+            color: #1e293b;
+        }
+
+        .hero h1 span {
+            color: #2563eb;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #64748b;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 25px;
+            background: #2563eb;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .btn-orange {
+            background: #f97316;
+        }
+
+        .hero-card {
+            background: white;
+            padding: 35px;
+            border-radius: 18px;
+            box-shadow: 0 15px 40px rgba(37, 99, 235, 0.12);
+            width: 350px;
+            text-align: center;
+        }
+
+        .hero-card .icon {
+            font-size: 60px;
+            margin-bottom: 15px;
+        }
+
+        section {
+            padding: 75px 7%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .section-title h2 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: #64748b;
+        }
+
+        .courses {
+            background: #f8fafc;
+        }
+
+        .course-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .course-card {
+            background: white;
+            padding: 28px;
+            border-radius: 14px;
+            border: 1px solid #e5e7eb;
+            transition: 0.3s;
+        }
+
+        .course-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+
+        .course-card .emoji {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .course-card h3 {
+            margin-bottom: 10px;
+        }
+
+        .course-card p {
+            color: #64748b;
+            margin-bottom: 15px;
+        }
+
+        .course-link {
+            color: #2563eb;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .feature {
+            text-align: center;
+            padding: 25px;
+        }
+
+        .feature-icon {
+            font-size: 45px;
+            margin-bottom: 15px;
+        }
+
+        .feature p {
+            color: #64748b;
+            margin-top: 10px;
+        }
+
+        .about {
+            background: #f8fafc;
+        }
+
+        .about-content {
+            max-width: 850px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .about-content p {
+            color: #64748b;
+            font-size: 17px;
+            margin-bottom: 15px;
+        }
+
+        .cta {
+            background: #2563eb;
+            color: white;
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-size: 36px;
+            margin-bottom: 15px;
+        }
+
+        .cta p {
+            margin-bottom: 25px;
+        }
+
+        .cta .btn {
+            background: #f97316;
+        }
+
+        footer {
+            background: #1e293b;
+            color: white;
+            padding: 35px 7%;
+            text-align: center;
+        }
+
+        footer p {
+            color: #cbd5e1;
+        }
+
+        @media (max-width: 850px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero h1 {
+                font-size: 40px;
+            }
+
+            .course-grid,
+            .features {
+                grid-template-columns: 1fr;
+            }
+
+            nav ul {
+                display: none;
+            }
+
+            .hero-card {
+                width: 100%;
+                max-width: 350px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <nav>
+        <div class="logo">Skill<span>Nest</span> Academy</div>
+
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#courses">Courses</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#why-us">Why Us</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="hero" id="home">
+    <div class="hero-content">
+        <h1>Learn Skills.<br><span>Build Your Future.</span></h1>
+
+        <p>
+            SkillNest Academy helps learners develop practical,
+            career-focused skills through accessible and engaging
+            online courses.
+        </p>
+
+        <a href="#courses" class="btn">Explore Courses</a>
+        <a href="#about" class="btn btn-orange">Learn More</a>
+    </div>
+
+    <div class="hero-card">
+        <div class="icon">🎓</div>
+        <h2>Learn. Grow. Succeed.</h2>
+        <p>
+            Build in-demand skills and take the next step
+            toward your career goals.
+        </p>
+    </div>
+</section>
+
+<section class="courses" id="courses">
+
+    <div class="section-title">
+        <h2>Popular Courses</h2>
+        <p>Develop practical skills that can help you grow professionally.</p>
+    </div>
+
+    <div class="course-grid">
+
+        <div class="course-card">
+            <div class="emoji">📈</div>
+            <h3>Digital Marketing</h3>
+            <p>
+                Learn digital marketing fundamentals, campaigns,
+                analytics and online growth strategies.
+            </p>
+            <a href="#" class="course-link">Learn More →</a>
+        </div>
+
+        <div class="course-card">
+            <div class="emoji">🔍</div>
+            <h3>Search Engine Optimization</h3>
+            <p>
+                Understand keyword research, on-page SEO,
+                technical SEO and off-page optimization.
+            </p>
+            <a href="#" class="course-link">Learn More →</a>
+        </div>
+
+        <div class="course-card">
+            <div class="emoji">📱</div>
+            <h3>Social Media Marketing</h3>
+            <p>
+                Learn how to create engaging content and
+                develop effective social media campaigns.
+            </p>
+            <a href="#" class="course-link">Learn More →</a>
+        </div>
+
+        <div class="course-card">
+            <div class="emoji">📊</div>
+            <h3>Business Analytics</h3>
+            <p>
+                Discover how data and analytics can support
+                better business decisions.
+            </p>
+            <a href="#" class="course-link">Learn More →</a>
+        </div>
+
+        <div class="course-card">
+            <div class="emoji">✍️</div>
+            <h3>Content Marketing</h3>
+            <p>
+                Learn to create valuable content that attracts,
+                engages and converts audiences.
+            </p>
+            <a href="#" class="course-link">Learn More →</a>
+        </div>
+
+        <div class="course-card">
+            <div class="emoji">💼</div>
+            <h3>Career Skills</h3>
+            <p>
+                Build communication, professional and
+                workplace skills for career success.
+            </p>
+            <a href="#" class="course-link">Learn More →</a>
+        </div>
+
+    </div>
+</section>
+
+<section id="why-us">
+
+    <div class="section-title">
+        <h2>Why Choose SkillNest?</h2>
+        <p>A learning experience designed around practical skills.</p>
+    </div>
+
+    <div class="features">
+
+        <div class="feature">
+            <div class="feature-icon">🎯</div>
+            <h3>Practical Learning</h3>
+            <p>
+                Learn concepts through practical and
+                career-oriented examples.
+            </p>
+        </div>
+
+        <div class="feature">
+            <div class="feature-icon">🚀</div>
+            <h3>Career Focused</h3>
+            <p>
+                Develop skills that are relevant to
+                today's digital workplace.
+            </p>
+        </div>
+
+        <div class="feature">
+            <div class="feature-icon">🌎</div>
+            <h3>Learn Anywhere</h3>
+            <p>
+                Access learning resources online and
+                study at your own pace.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+<section class="about" id="about">
+
+    <div class="section-title">
+        <h2>About SkillNest Academy</h2>
+    </div>
+
+    <div class="about-content">
+
+        <p>
+            SkillNest Academy is an e-learning platform created
+            to help learners build practical digital and
+            professional skills.
+        </p>
+
+        <p>
+            Our goal is to make quality learning accessible,
+            engaging and focused on real-world applications.
+        </p>
+
+    </div>
+</section>
+
+<section class="cta" id="contact">
+
+    <h2>Ready to Grow Your Skills?</h2>
+
+    <p>
+        Start learning today and take the next step toward
+        your career goals.
+    </p>
+
+    <a href="mailto:hello@skillnestacademy.com" class="btn">
+        Contact SkillNest
+    </a>
+
+</section>
+
+<footer>
+
+    <h3>SkillNest Academy</h3>
+
+    <p>
+        Learn Skills. Build Your Future.
+    </p>
+
+    <p>
+        © 2026 SkillNest Academy. All Rights Reserved.
+    </p>
+
+</footer>
+
+</body>
+</html>
