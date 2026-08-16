@@ -2,39 +2,38 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="SkillNest Academy - Learn practical, career-focused skills through accessible and engaging online courses.">
+
+    <meta name="keywords" content="online courses, digital marketing, SEO, social media marketing, SkillNest Academy, career skills">
+
+    <meta name="author" content="SkillNest Academy">
 
     <title>SkillNest Academy | Learn Skills. Build Your Future.</title>
 
-    <meta name="description" content="SkillNest Academy provides practical, career-focused online courses in digital marketing, SEO, social media and more.">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
-
     <style>
 
-        /* =========================
+        /* ==============================
            GLOBAL STYLES
-        ========================== */
+        ============================== */
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+        }
+
+        html {
             scroll-behavior: smooth;
         }
 
         body {
-            font-family: "Inter", sans-serif;
+            font-family: Arial, Helvetica, sans-serif;
             color: #1E293B;
             background: #FFFFFF;
             line-height: 1.6;
-        }
-
-        h1, h2, h3, h4 {
-            font-family: "Poppins", sans-serif;
         }
 
         a {
@@ -49,96 +48,97 @@
 
         .container {
             width: 90%;
-            max-width: 1250px;
+            max-width: 1200px;
             margin: auto;
         }
 
 
-        /* =========================
-           NAVIGATION
-        ========================== */
+        /* ==============================
+           NAVBAR
+        ============================== */
 
         header {
             position: sticky;
             top: 0;
             z-index: 1000;
-            background: rgba(255,255,255,0.97);
-            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.97);
             border-bottom: 1px solid #E2E8F0;
+            backdrop-filter: blur(10px);
         }
 
         .navbar {
-            min-height: 100px;
+            min-height: 94px;
             display: flex;
             align-items: center;
-            gap: 25px;
+            gap: 35px;
         }
 
-        /* LARGE LOGO */
-
-        .logo {
+        .logo-link {
             display: flex;
             align-items: center;
             flex-shrink: 0;
         }
 
-        .logo img {
+        .navbar-logo {
             width: 105px;
-            height: 85px;
+            height: 78px;
             object-fit: contain;
         }
 
 
         /* SEARCH BAR */
 
-        .search-box {
-            display: flex;
-            align-items: center;
-            width: 300px;
-            height: 45px;
-            background: #F8FAFC;
+        .search-wrapper {
+            position: relative;
+            width: 285px;
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 18px;
+            pointer-events: none;
+        }
+
+        #courseSearch {
+            width: 100%;
+            height: 44px;
+            padding: 0 18px 0 43px;
             border: 1px solid #CBD5E1;
-            border-radius: 25px;
-            padding: 0 16px;
+            border-radius: 30px;
+            outline: none;
+            font-size: 14px;
+            color: #1E293B;
+            background: #F8FAFC;
             transition: 0.3s;
         }
 
-        .search-box:focus-within {
+        #courseSearch:focus {
             border-color: #2563EB;
-            box-shadow: 0 0 0 3px rgba(37,99,235,0.12);
+            background: #FFFFFF;
+            box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.10);
         }
 
-        .search-box span {
-            font-size: 18px;
-            margin-right: 8px;
-        }
-
-        .search-box input {
-            border: none;
-            outline: none;
-            background: transparent;
-            width: 100%;
-            font-size: 14px;
-            color: #1E293B;
-        }
-
-        .search-box input::placeholder {
+        #courseSearch::placeholder {
             color: #64748B;
         }
 
 
-        /* NAV LINKS */
+        /* NAVIGATION */
 
         .nav-links {
             display: flex;
             align-items: center;
-            gap: 30px;
+            gap: 32px;
             margin-left: auto;
         }
 
         .nav-links a {
-            font-weight: 600;
             font-size: 15px;
+            font-weight: 700;
+            color: #1E293B;
             transition: 0.3s;
         }
 
@@ -146,38 +146,110 @@
             color: #2563EB;
         }
 
+        .menu-button {
+            display: none;
+            border: none;
+            background: transparent;
+            font-size: 28px;
+            cursor: pointer;
+        }
 
-        /* =========================
+
+        /* ==============================
            HERO SECTION
-        ========================== */
+        ============================== */
 
         .hero {
-            background: linear-gradient(135deg, #EFF6FF 0%, #FFFFFF 70%);
-            padding: 70px 0 90px;
+            background: linear-gradient(
+                135deg,
+                #EFF6FF 0%,
+                #F8FAFC 55%,
+                #FFFFFF 100%
+            );
+
+            min-height: 610px;
+
+            display: flex;
+            align-items: center;
         }
 
         .hero-content {
             display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
-            align-items: center;
+            grid-template-columns: 1.15fr 0.85fr;
             gap: 70px;
+            align-items: center;
+            padding: 70px 0;
         }
 
 
-        /* HERO LOGO */
+        /* PREMIUM BADGE */
 
-        .hero-logo {
-            width: 150px;
-            height: 150px;
-            object-fit: contain;
-            margin-bottom: 25px;
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+
+            margin-bottom: 22px;
+
+            padding: 9px 17px;
+
+            background: rgba(37, 99, 235, 0.08);
+
+            border: 1px solid rgba(37, 99, 235, 0.16);
+
+            border-radius: 50px;
+
+            color: #1E293B;
         }
 
+        .hero-badge-icon {
+            width: 34px;
+            height: 34px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: #2563EB;
+            color: #FFFFFF;
+
+            border-radius: 50%;
+
+            font-size: 17px;
+        }
+
+        .hero-badge strong {
+            display: block;
+
+            color: #2563EB;
+
+            font-size: 12px;
+
+            letter-spacing: 1px;
+        }
+
+        .hero-badge small {
+            display: block;
+
+            margin-top: 1px;
+
+            color: #64748B;
+
+            font-size: 11px;
+        }
+
+
+        /* HERO TEXT */
 
         .hero h1 {
-            font-size: clamp(42px, 5vw, 68px);
-            line-height: 1.08;
+            font-size: clamp(48px, 6vw, 78px);
+
+            line-height: 1.05;
+
+            letter-spacing: -2px;
+
             margin-bottom: 25px;
+
             color: #1E293B;
         }
 
@@ -185,398 +257,611 @@
             color: #2563EB;
         }
 
-        .hero-text {
+        .hero-description {
+            max-width: 690px;
+
             font-size: 18px;
+
             color: #64748B;
-            max-width: 700px;
+
             margin-bottom: 32px;
         }
 
+
+        /* BUTTONS */
+
         .hero-buttons {
             display: flex;
-            gap: 15px;
+            gap: 14px;
             flex-wrap: wrap;
         }
 
         .btn {
-            display: inline-block;
-            padding: 14px 25px;
+            display: inline-flex;
+
+            align-items: center;
+            justify-content: center;
+
+            padding: 15px 25px;
+
             border-radius: 8px;
+
+            font-size: 15px;
+
             font-weight: 700;
+
             transition: 0.3s;
+
+            cursor: pointer;
         }
 
         .btn-primary {
             background: #2563EB;
-            color: white;
+            color: #FFFFFF;
         }
 
         .btn-primary:hover {
             background: #1D4ED8;
             transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(37,99,235,0.25);
+            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.25);
         }
 
         .btn-orange {
             background: #F97316;
-            color: white;
+            color: #FFFFFF;
         }
 
         .btn-orange:hover {
             background: #EA580C;
             transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(249,115,22,0.25);
+            box-shadow: 0 10px 25px rgba(249, 115, 22, 0.25);
         }
 
 
         /* HERO CARD */
 
         .hero-card {
-            background: white;
-            border-radius: 25px;
-            padding: 45px 35px;
-            text-align: center;
-            box-shadow: 0 20px 50px rgba(37,99,235,0.12);
+            background: #FFFFFF;
+
             border: 1px solid #E2E8F0;
+
+            border-radius: 22px;
+
+            padding: 55px 40px;
+
+            text-align: center;
+
+            box-shadow: 0 25px 60px rgba(37, 99, 235, 0.10);
+
+            transition: 0.3s;
+        }
+
+        .hero-card:hover {
+            transform: translateY(-5px);
+
+            box-shadow: 0 30px 70px rgba(37, 99, 235, 0.15);
         }
 
         .hero-card-icon {
-            font-size: 65px;
-            margin-bottom: 20px;
+            font-size: 55px;
+            margin-bottom: 25px;
         }
 
         .hero-card h2 {
-            font-size: 26px;
-            margin-bottom: 15px;
+            font-size: 27px;
+            margin-bottom: 14px;
         }
 
         .hero-card p {
             color: #64748B;
-            font-size: 16px;
+            font-size: 17px;
         }
 
 
-        /* =========================
+        /* ==============================
            STATS
-        ========================== */
+        ============================== */
 
         .stats {
             background: #1E293B;
-            color: white;
-            padding: 35px 0;
+            color: #FFFFFF;
         }
 
         .stats-grid {
             display: grid;
+
             grid-template-columns: repeat(4, 1fr);
+
             text-align: center;
-            gap: 20px;
+
+            padding: 35px 0;
         }
 
         .stat h3 {
-            font-size: 32px;
             color: #60A5FA;
+
+            font-size: 34px;
+
+            margin-bottom: 3px;
         }
 
         .stat p {
             color: #CBD5E1;
+
             font-size: 14px;
         }
 
 
-        /* =========================
-           SECTION COMMON
-        ========================== */
+        /* ==============================
+           GENERAL SECTION
+        ============================== */
 
         section {
+            scroll-margin-top: 100px;
+        }
+
+        .section {
             padding: 90px 0;
         }
 
-        .section-heading {
+        .section-header {
             text-align: center;
-            margin-bottom: 55px;
+
+            max-width: 700px;
+
+            margin: 0 auto 50px;
         }
 
-        .section-heading h2 {
-            font-size: 38px;
-            margin-bottom: 10px;
+        .section-header h2 {
+            font-size: 40px;
+
+            margin-bottom: 12px;
+
+            color: #1E293B;
         }
 
-        .section-heading p {
+        .section-header p {
             color: #64748B;
-            font-size: 16px;
+
+            font-size: 17px;
         }
 
 
-        /* =========================
+        /* ==============================
            COURSES
-        ========================== */
+        ============================== */
 
         .courses-section {
             background: #F8FAFC;
         }
 
-        .course-grid {
+        .courses-grid {
             display: grid;
+
             grid-template-columns: repeat(3, 1fr);
+
             gap: 25px;
         }
 
         .course-card {
-            background: white;
+            background: #FFFFFF;
+
             border: 1px solid #E2E8F0;
-            border-radius: 15px;
+
+            border-radius: 16px;
+
             padding: 30px;
+
             transition: 0.3s;
         }
 
         .course-card:hover {
-            transform: translateY(-7px);
-            box-shadow: 0 15px 35px rgba(15,23,42,0.10);
+            transform: translateY(-6px);
+
+            box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
+
             border-color: #BFDBFE;
         }
 
         .course-icon {
-            font-size: 42px;
+            font-size: 40px;
+
             margin-bottom: 20px;
         }
 
         .course-card h3 {
             font-size: 20px;
+
             margin-bottom: 10px;
         }
 
         .course-card p {
             color: #64748B;
-            font-size: 14px;
+
+            font-size: 15px;
+
             margin-bottom: 20px;
         }
 
         .course-link {
             color: #2563EB;
+
             font-weight: 700;
+
             font-size: 14px;
         }
 
+        .course-link:hover {
+            text-decoration: underline;
+        }
 
-        /* =========================
+
+        /* SEARCH RESULT MESSAGE */
+
+        #noResults {
+            display: none;
+
+            text-align: center;
+
+            color: #64748B;
+
+            margin-top: 30px;
+
+            font-size: 16px;
+        }
+
+
+        /* ==============================
+           CATEGORIES
+        ============================== */
+
+        .categories-grid {
+            display: grid;
+
+            grid-template-columns: repeat(4, 1fr);
+
+            gap: 20px;
+        }
+
+        .category {
+            padding: 25px;
+
+            background: #FFFFFF;
+
+            border: 1px solid #E2E8F0;
+
+            border-radius: 14px;
+
+            text-align: center;
+
+            transition: 0.3s;
+        }
+
+        .category:hover {
+            border-color: #2563EB;
+
+            transform: translateY(-4px);
+        }
+
+        .category-icon {
+            font-size: 34px;
+
+            margin-bottom: 10px;
+        }
+
+        .category h3 {
+            font-size: 17px;
+        }
+
+
+        /* ==============================
            WHY US
-        ========================== */
+        ============================== */
+
+        .why-section {
+            background: #F8FAFC;
+        }
 
         .why-grid {
             display: grid;
+
             grid-template-columns: repeat(3, 1fr);
+
             gap: 25px;
         }
 
         .why-card {
-            padding: 35px;
-            border-radius: 15px;
-            background: #F8FAFC;
-            border: 1px solid #E2E8F0;
-            transition: 0.3s;
-        }
+            background: #FFFFFF;
 
-        .why-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(15,23,42,0.08);
+            padding: 35px;
+
+            border-radius: 16px;
+
+            border: 1px solid #E2E8F0;
         }
 
         .why-icon {
-            font-size: 40px;
-            margin-bottom: 18px;
+            width: 55px;
+            height: 55px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: #EFF6FF;
+
+            color: #2563EB;
+
+            border-radius: 14px;
+
+            font-size: 26px;
+
+            margin-bottom: 20px;
         }
 
         .why-card h3 {
             margin-bottom: 10px;
+
+            font-size: 20px;
         }
 
         .why-card p {
             color: #64748B;
-            font-size: 14px;
+
+            font-size: 15px;
         }
 
 
-        /* =========================
+        /* ==============================
            ABOUT
-        ========================== */
-
-        .about-section {
-            background: #EFF6FF;
-        }
+        ============================== */
 
         .about-grid {
             display: grid;
+
             grid-template-columns: 1fr 1fr;
+
             gap: 70px;
+
             align-items: center;
         }
 
-        .about h2 {
-            font-size: 38px;
+        .about-content h2 {
+            font-size: 40px;
+
             margin-bottom: 20px;
         }
 
-        .about p {
+        .about-content p {
             color: #64748B;
-            margin-bottom: 15px;
+
+            margin-bottom: 18px;
+
+            font-size: 16px;
         }
 
         .about-box {
-            background: white;
-            border-radius: 20px;
-            padding: 40px;
-            box-shadow: 0 15px 40px rgba(37,99,235,0.10);
+            background: #EFF6FF;
+
+            border-radius: 22px;
+
+            padding: 50px;
+
+            text-align: center;
         }
 
-        .about-box h3 {
+        .about-box-icon {
+            font-size: 65px;
+
             margin-bottom: 15px;
         }
 
+        .about-box h3 {
+            font-size: 25px;
 
-        /* =========================
+            margin-bottom: 10px;
+        }
+
+        .about-box p {
+            color: #64748B;
+        }
+
+
+        /* ==============================
            TESTIMONIALS
-        ========================== */
+        ============================== */
+
+        .testimonial-section {
+            background: #F8FAFC;
+        }
 
         .testimonial-grid {
             display: grid;
+
             grid-template-columns: repeat(3, 1fr);
+
             gap: 25px;
         }
 
         .testimonial {
-            background: white;
+            background: #FFFFFF;
+
             border: 1px solid #E2E8F0;
-            border-radius: 15px;
+
+            border-radius: 16px;
+
             padding: 30px;
-            box-shadow: 0 8px 25px rgba(15,23,42,0.05);
         }
 
         .stars {
             color: #F97316;
-            font-size: 20px;
+
+            font-size: 18px;
+
             margin-bottom: 15px;
         }
 
         .testimonial p {
             color: #64748B;
-            font-size: 14px;
+
             margin-bottom: 20px;
+
+            font-style: italic;
         }
 
         .student {
             font-weight: 700;
         }
 
+        .student-role {
+            display: block;
 
-        /* =========================
-           CTA
-        ========================== */
+            color: #94A3B8;
+
+            font-size: 13px;
+
+            margin-top: 3px;
+        }
+
+
+        /* ==============================
+           CONTACT / CTA
+        ============================== */
 
         .cta {
-            background: linear-gradient(135deg, #2563EB, #1D4ED8);
-            color: white;
+            background: linear-gradient(
+                135deg,
+                #2563EB,
+                #1D4ED8
+            );
+
+            color: #FFFFFF;
+
             text-align: center;
+
+            padding: 80px 20px;
         }
 
         .cta h2 {
             font-size: 40px;
+
             margin-bottom: 15px;
         }
 
         .cta p {
+            max-width: 650px;
+
+            margin: 0 auto 30px;
+
             color: #DBEAFE;
-            margin-bottom: 30px;
+
+            font-size: 17px;
         }
 
         .cta .btn {
             background: #F97316;
         }
 
+        .cta .btn:hover {
+            background: #EA580C;
+        }
 
-        /* =========================
+
+        /* ==============================
            FOOTER
-        ========================== */
+        ============================== */
 
         footer {
             background: #0F172A;
-            color: white;
+
+            color: #FFFFFF;
+
             padding: 55px 0 25px;
         }
 
         .footer-grid {
             display: grid;
+
             grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 40px;
+
+            gap: 50px;
+
             margin-bottom: 40px;
         }
 
-        .footer-logo img {
+        .footer-logo {
             width: 100px;
+
+            height: 75px;
+
+            object-fit: contain;
+
             margin-bottom: 15px;
-            filter: brightness(0) invert(1);
+
+            background: #FFFFFF;
+
+            border-radius: 8px;
+        }
+
+        .footer-about {
+            color: #94A3B8;
+
+            max-width: 350px;
+
+            font-size: 14px;
         }
 
         .footer-column h3 {
-            margin-bottom: 15px;
-        }
+            font-size: 16px;
 
-        .footer-column p,
-        .footer-column a {
-            color: #94A3B8;
-            font-size: 14px;
+            margin-bottom: 18px;
         }
 
         .footer-column a {
             display: block;
-            margin-bottom: 8px;
+
+            color: #94A3B8;
+
+            font-size: 14px;
+
+            margin-bottom: 10px;
+
+            transition: 0.3s;
         }
 
         .footer-column a:hover {
-            color: white;
+            color: #60A5FA;
         }
 
-        .copyright {
-            text-align: center;
-            border-top: 1px solid #334155;
+        .footer-bottom {
+            border-top: 1px solid #1E293B;
+
             padding-top: 20px;
+
+            text-align: center;
+
             color: #64748B;
+
             font-size: 13px;
         }
 
 
-        /* =========================
-           NO RESULTS
-        ========================== */
+        /* ==============================
+           MOBILE
+        ============================== */
 
-        #noResults {
-            display: none;
-            text-align: center;
-            color: #64748B;
-            margin-top: 30px;
-        }
-
-
-        /* =========================
-           RESPONSIVE DESIGN
-        ========================== */
-
-        @media (max-width: 1000px) {
+        @media (max-width: 900px) {
 
             .navbar {
-                flex-wrap: wrap;
-                padding: 12px 0;
+                gap: 15px;
             }
 
-            .search-box {
-                width: 250px;
+            .search-wrapper {
+                width: 220px;
             }
 
             .nav-links {
-                order: 3;
-                width: 100%;
-                justify-content: center;
-                padding-bottom: 10px;
+                gap: 18px;
             }
 
             .hero-content {
@@ -584,95 +869,129 @@
             }
 
             .hero-card {
-                max-width: 500px;
+                max-width: 550px;
                 margin: auto;
             }
 
-            .course-grid,
-            .why-grid,
-            .testimonial-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .stats-grid {
-                grid-template-columns: repeat(2, 1fr);
-                row-gap: 30px;
-            }
-
-            .footer-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-
-        @media (max-width: 650px) {
-
-            .container {
-                width: 92%;
-            }
-
-            .navbar {
-                justify-content: center;
-            }
-
-            .logo img {
-                width: 100px;
-                height: 80px;
-            }
-
-            .search-box {
-                width: 100%;
-                order: 2;
-            }
-
-            .nav-links {
-                gap: 15px;
-                flex-wrap: wrap;
-                font-size: 13px;
-            }
-
-            .hero {
-                padding: 50px 0 65px;
-            }
-
-            .hero-logo {
-                width: 130px;
-                height: 130px;
-            }
-
-            .hero h1 {
-                font-size: 42px;
-            }
-
-            .hero-text {
-                font-size: 16px;
-            }
-
-            .course-grid,
-            .why-grid,
+            .courses-grid,
             .testimonial-grid,
+            .why-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .categories-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
             .about-grid {
                 grid-template-columns: 1fr;
             }
 
-            .stats-grid {
+            .footer-grid {
                 grid-template-columns: 1fr 1fr;
+            }
+        }
+
+
+        @media (max-width: 700px) {
+
+            .navbar {
+                min-height: 80px;
+                flex-wrap: wrap;
+                padding: 10px 0;
+            }
+
+            .navbar-logo {
+                width: 82px;
+                height: 62px;
+            }
+
+            .search-wrapper {
+                order: 3;
+                width: 100%;
+            }
+
+            .nav-links {
+                display: none;
+
+                width: 100%;
+
+                flex-direction: column;
+
+                padding: 20px 0;
+
+                gap: 18px;
+
+                background: #FFFFFF;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .menu-button {
+                display: block;
+
+                margin-left: auto;
+            }
+
+            .hero {
+                min-height: auto;
+            }
+
+            .hero-content {
+                padding: 55px 0;
+            }
+
+            .hero h1 {
+                font-size: 48px;
+            }
+
+            .hero-description {
+                font-size: 16px;
+            }
+
+            .hero-card {
+                padding: 40px 25px;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+
+                gap: 25px;
+            }
+
+            .courses-grid,
+            .testimonial-grid,
+            .why-grid,
+            .categories-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section {
+                padding: 65px 0;
+            }
+
+            .section-header h2,
+            .about-content h2,
+            .cta h2 {
+                font-size: 32px;
             }
 
             .footer-grid {
                 grid-template-columns: 1fr;
             }
 
-            section {
-                padding: 65px 0;
+            .hero-buttons {
+                width: 100%;
             }
 
-            .section-heading h2 {
-                font-size: 30px;
+            .hero-buttons .btn {
+                width: 100%;
             }
 
-            .cta h2 {
-                font-size: 30px;
+            .hero-badge {
+                margin-bottom: 18px;
             }
         }
 
@@ -683,24 +1002,28 @@
 <body>
 
 
-<!-- =========================
+<!-- ==============================
      NAVIGATION
-========================== -->
+============================== -->
 
 <header>
 
     <div class="container navbar">
 
-        <a href="#home" class="logo">
-            <img src="logo.png" alt="SkillNest Academy Logo">
+        <a href="#home" class="logo-link">
+
+            <img
+                src="logo.png"
+                alt="SkillNest Academy Logo"
+                class="navbar-logo"
+            >
+
         </a>
 
 
-        <!-- SEARCH BAR -->
+        <div class="search-wrapper">
 
-        <div class="search-box">
-
-            <span>🔍</span>
+            <span class="search-icon">🔍</span>
 
             <input
                 type="text"
@@ -712,9 +1035,16 @@
         </div>
 
 
-        <!-- NAVIGATION LINKS -->
+        <button
+            class="menu-button"
+            onclick="toggleMenu()"
+            aria-label="Open navigation menu"
+        >
+            ☰
+        </button>
 
-        <nav class="nav-links">
+
+        <nav class="nav-links" id="navLinks">
 
             <a href="#home">Home</a>
 
@@ -734,33 +1064,55 @@
 
 
 
-<!-- =========================
+<!-- ==============================
      HERO
-========================== -->
+============================== -->
 
 <section class="hero" id="home">
 
     <div class="container hero-content">
 
 
-        <div>
+        <div class="hero-text">
 
-            <!-- LARGE HERO LOGO -->
 
-            <img
-                src="logo.png"
-                alt="SkillNest Academy"
-                class="hero-logo"
-            >
+            <!-- Premium brand badge -->
+
+            <div class="hero-badge">
+
+                <span class="hero-badge-icon">
+                    ✦
+                </span>
+
+                <div>
+
+                    <strong>
+                        SKILLNEST ACADEMY
+                    </strong>
+
+                    <small>
+                        Career-ready learning, made simple.
+                    </small>
+
+                </div>
+
+            </div>
 
 
             <h1>
-                Learn Skills.<br>
-                <span>Build Your Future.</span>
+
+                Learn Skills.
+
+                <br>
+
+                <span>
+                    Build Your Future.
+                </span>
+
             </h1>
 
 
-            <p class="hero-text">
+            <p class="hero-description">
 
                 SkillNest Academy helps learners develop practical,
                 career-focused skills through accessible and engaging
@@ -771,15 +1123,23 @@
 
             <div class="hero-buttons">
 
-                <a href="#courses" class="btn btn-primary">
+                <a
+                    href="#courses"
+                    class="btn btn-primary"
+                >
                     Explore Courses
                 </a>
 
-                <a href="#about" class="btn btn-orange">
+
+                <a
+                    href="#about"
+                    class="btn btn-orange"
+                >
                     Learn More
                 </a>
 
             </div>
+
 
         </div>
 
@@ -796,11 +1156,12 @@
             </h2>
 
             <p>
-                Build in-demand skills and take the next step
-                toward your career goals.
+                Build in-demand skills and take the next
+                step toward your career goals.
             </p>
 
         </div>
+
 
     </div>
 
@@ -808,33 +1169,66 @@
 
 
 
-<!-- =========================
+<!-- ==============================
      STATS
-========================== -->
+============================== -->
 
 <section class="stats">
 
     <div class="container stats-grid">
 
-        <div class="stat">
-            <h3>10+</h3>
-            <p>Career-Focused Courses</p>
-        </div>
 
         <div class="stat">
-            <h3>500+</h3>
-            <p>Learners</p>
+
+            <h3>
+                10+
+            </h3>
+
+            <p>
+                Career-Focused Courses
+            </p>
+
         </div>
 
-        <div class="stat">
-            <h3>95%</h3>
-            <p>Student Satisfaction</p>
-        </div>
 
         <div class="stat">
-            <h3>24/7</h3>
-            <p>Learning Access</p>
+
+            <h3>
+                500+
+            </h3>
+
+            <p>
+                Learners
+            </p>
+
         </div>
+
+
+        <div class="stat">
+
+            <h3>
+                95%
+            </h3>
+
+            <p>
+                Student Satisfaction
+            </p>
+
+        </div>
+
+
+        <div class="stat">
+
+            <h3>
+                24/7
+            </h3>
+
+            <p>
+                Learning Access
+            </p>
+
+        </div>
+
 
     </div>
 
@@ -842,159 +1236,207 @@
 
 
 
-<!-- =========================
+<!-- ==============================
      COURSES
-========================== -->
+============================== -->
 
-<section class="courses-section" id="courses">
+<section
+    class="section courses-section"
+    id="courses"
+>
 
     <div class="container">
 
-        <div class="section-heading">
 
-            <h2>Popular Courses</h2>
+        <div class="section-header">
+
+            <h2>
+                Popular Courses
+            </h2>
 
             <p>
-                Develop practical skills that can help you
-                grow professionally.
+                Develop practical skills that can help
+                you grow professionally.
             </p>
 
         </div>
 
 
-        <div class="course-grid" id="courseGrid">
+        <div class="courses-grid" id="coursesGrid">
 
 
-            <!-- COURSE 1 -->
-
-            <div class="course-card">
+            <div
+                class="course-card"
+                data-course="digital marketing"
+            >
 
                 <div class="course-icon">
                     📈
                 </div>
 
-                <h3>Digital Marketing</h3>
+                <h3>
+                    Digital Marketing
+                </h3>
 
                 <p>
                     Learn digital marketing fundamentals,
                     campaigns, branding and online growth strategies.
                 </p>
 
-                <a href="#contact" class="course-link">
+                <a
+                    href="#contact"
+                    class="course-link"
+                >
                     Learn More →
                 </a>
 
             </div>
 
 
-            <!-- COURSE 2 -->
 
-            <div class="course-card">
+            <div
+                class="course-card"
+                data-course="search engine optimization seo"
+            >
 
                 <div class="course-icon">
-                    🔎
+                    🔍
                 </div>
 
-                <h3>Search Engine Optimization</h3>
+                <h3>
+                    Search Engine Optimization
+                </h3>
 
                 <p>
                     Understand keyword research, on-page SEO,
                     technical SEO and link-building strategies.
                 </p>
 
-                <a href="#contact" class="course-link">
+                <a
+                    href="#contact"
+                    class="course-link"
+                >
                     Learn More →
                 </a>
 
             </div>
 
 
-            <!-- COURSE 3 -->
 
-            <div class="course-card">
+            <div
+                class="course-card"
+                data-course="social media marketing"
+            >
 
                 <div class="course-icon">
                     📱
                 </div>
 
-                <h3>Social Media Marketing</h3>
+                <h3>
+                    Social Media Marketing
+                </h3>
 
                 <p>
                     Learn how to create engaging content and
                     develop effective social media campaigns.
                 </p>
 
-                <a href="#contact" class="course-link">
+                <a
+                    href="#contact"
+                    class="course-link"
+                >
                     Learn More →
                 </a>
 
             </div>
 
 
-            <!-- COURSE 4 -->
 
-            <div class="course-card">
-
-                <div class="course-icon">
-                    💻
-                </div>
-
-                <h3>Web Development</h3>
-
-                <p>
-                    Learn the fundamentals of HTML, CSS and
-                    modern website development.
-                </p>
-
-                <a href="#contact" class="course-link">
-                    Learn More →
-                </a>
-
-            </div>
-
-
-            <!-- COURSE 5 -->
-
-            <div class="course-card">
+            <div
+                class="course-card"
+                data-course="content marketing"
+            >
 
                 <div class="course-icon">
                     ✍️
                 </div>
 
-                <h3>Content Marketing</h3>
+                <h3>
+                    Content Marketing
+                </h3>
 
                 <p>
-                    Create valuable content that attracts,
-                    engages and converts your target audience.
+                    Discover how valuable content can attract,
+                    engage and convert your target audience.
                 </p>
 
-                <a href="#contact" class="course-link">
+                <a
+                    href="#contact"
+                    class="course-link"
+                >
                     Learn More →
                 </a>
 
             </div>
 
 
-            <!-- COURSE 6 -->
 
-            <div class="course-card">
+            <div
+                class="course-card"
+                data-course="web development"
+            >
 
                 <div class="course-icon">
-                    📊
+                    💻
                 </div>
 
-                <h3>Marketing Analytics</h3>
+                <h3>
+                    Web Development
+                </h3>
 
                 <p>
-                    Understand marketing data, performance
-                    metrics and campaign optimization.
+                    Learn the fundamentals of creating modern,
+                    responsive and user-friendly websites.
                 </p>
 
-                <a href="#contact" class="course-link">
+                <a
+                    href="#contact"
+                    class="course-link"
+                >
                     Learn More →
                 </a>
 
             </div>
+
+
+
+            <div
+                class="course-card"
+                data-course="graphic design"
+            >
+
+                <div class="course-icon">
+                    🎨
+                </div>
+
+                <h3>
+                    Graphic Design
+                </h3>
+
+                <p>
+                    Build creative design skills for digital
+                    content, branding and marketing.
+                </p>
+
+                <a
+                    href="#contact"
+                    class="course-link"
+                >
+                    Learn More →
+                </a>
+
+            </div>
+
 
         </div>
 
@@ -1003,26 +1445,120 @@
             No courses found. Try another search.
         </p>
 
+
     </div>
 
 </section>
 
 
 
-<!-- =========================
-     WHY CHOOSE US
-========================== -->
+<!-- ==============================
+     CATEGORIES
+============================== -->
 
-<section id="why-us">
+<section class="section">
 
     <div class="container">
 
-        <div class="section-heading">
 
-            <h2>Why Choose SkillNest?</h2>
+        <div class="section-header">
+
+            <h2>
+                Explore Learning Categories
+            </h2>
 
             <p>
-                Learning designed around real-world skills and career growth.
+                Find the right skills for your personal
+                and professional growth.
+            </p>
+
+        </div>
+
+
+        <div class="categories-grid">
+
+
+            <div class="category">
+
+                <div class="category-icon">
+                    📊
+                </div>
+
+                <h3>
+                    Business
+                </h3>
+
+            </div>
+
+
+            <div class="category">
+
+                <div class="category-icon">
+                    📢
+                </div>
+
+                <h3>
+                    Marketing
+                </h3>
+
+            </div>
+
+
+            <div class="category">
+
+                <div class="category-icon">
+                    💻
+                </div>
+
+                <h3>
+                    Technology
+                </h3>
+
+            </div>
+
+
+            <div class="category">
+
+                <div class="category-icon">
+                    🎨
+                </div>
+
+                <h3>
+                    Creative Skills
+                </h3>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ==============================
+     WHY US
+============================== -->
+
+<section
+    class="section why-section"
+    id="why-us"
+>
+
+    <div class="container">
+
+
+        <div class="section-header">
+
+            <h2>
+                Why Choose SkillNest?
+            </h2>
+
+            <p>
+                Everything you need to turn learning
+                into meaningful career growth.
             </p>
 
         </div>
@@ -1037,78 +1573,38 @@
                     🎯
                 </div>
 
-                <h3>Practical Learning</h3>
+                <h3>
+                    Career-Focused
+                </h3>
 
                 <p>
-                    Learn skills that can be applied to real-world
-                    projects and professional situations.
+                    Learn practical skills designed to
+                    help you prepare for real-world
+                    professional opportunities.
                 </p>
 
             </div>
+
 
 
             <div class="why-card">
 
                 <div class="why-icon">
-                    🚀
+                    ⚡
                 </div>
 
-                <h3>Career Focused</h3>
+                <h3>
+                    Learn at Your Pace
+                </h3>
 
                 <p>
-                    Build knowledge and confidence in skills
-                    that are valuable in today's job market.
+                    Access learning resources whenever
+                    you need them and progress at a
+                    comfortable pace.
                 </p>
 
             </div>
 
-
-            <div class="why-card">
-
-                <div class="why-icon">
-                    🕒
-                </div>
-
-                <h3>Learn Anytime</h3>
-
-                <p>
-                    Access learning resources at your own pace
-                    and fit education around your schedule.
-                </p>
-
-            </div>
-
-
-            <div class="why-card">
-
-                <div class="why-icon">
-                    💡
-                </div>
-
-                <h3>Easy to Understand</h3>
-
-                <p>
-                    Courses are designed to make complex concepts
-                    easier to understand for beginners.
-                </p>
-
-            </div>
-
-
-            <div class="why-card">
-
-                <div class="why-icon">
-                    📚
-                </div>
-
-                <h3>Relevant Content</h3>
-
-                <p>
-                    Explore learning material focused on modern
-                    digital and professional skills.
-                </p>
-
-            </div>
 
 
             <div class="why-card">
@@ -1117,15 +1613,19 @@
                     🌟
                 </div>
 
-                <h3>Growth Mindset</h3>
+                <h3>
+                    Practical Learning
+                </h3>
 
                 <p>
-                    Develop the knowledge and confidence needed
-                    to keep growing throughout your career.
+                    Focus on useful knowledge, projects
+                    and skills that can be applied beyond
+                    the classroom.
                 </p>
 
             </div>
 
+
         </div>
 
     </div>
@@ -1134,65 +1634,65 @@
 
 
 
-<!-- =========================
+<!-- ==============================
      ABOUT
-========================== -->
+============================== -->
 
-<section class="about-section" id="about">
+<section
+    class="section"
+    id="about"
+>
 
     <div class="container about-grid">
 
 
-        <div class="about">
+        <div class="about-content">
 
             <h2>
-                Learn Today.<br>
-                Lead Tomorrow.
+                Learning That Moves You Forward.
             </h2>
 
             <p>
-                SkillNest Academy is focused on helping learners
-                develop practical and career-focused skills.
+                SkillNest Academy is designed to make
+                professional learning simple, accessible
+                and engaging.
             </p>
 
             <p>
-                Our learning experience combines accessible
-                educational content with skills that can be
-                applied in real-world situations.
+                Our goal is to help learners develop
+                practical skills that support their
+                academic, personal and career goals.
             </p>
 
             <p>
-                Whether you're starting your career or developing
-                new abilities, SkillNest provides a foundation
-                for continuous learning.
+                From digital marketing and SEO to
+                technology and creative skills, SkillNest
+                brings learning opportunities together
+                in one place.
             </p>
 
         </div>
+
 
 
         <div class="about-box">
 
+            <div class="about-box-icon">
+                🚀
+            </div>
+
             <h3>
-                Our Mission
+                Learn Today.
+                Lead Tomorrow.
             </h3>
 
             <p>
-                To make practical and career-oriented learning
-                accessible, engaging and easy to understand.
-            </p>
-
-            <br>
-
-            <h3>
-                Our Vision
-            </h3>
-
-            <p>
-                To help learners build the skills and confidence
-                needed to succeed in a changing professional world.
+                Build skills today that can help shape
+                your opportunities tomorrow.
             </p>
 
         </div>
+
 
     </div>
 
@@ -1200,20 +1700,24 @@
 
 
 
-<!-- =========================
+<!-- ==============================
      TESTIMONIALS
-========================== -->
+============================== -->
 
-<section>
+<section class="section testimonial-section">
 
     <div class="container">
 
-        <div class="section-heading">
 
-            <h2>What Learners Say</h2>
+        <div class="section-header">
+
+            <h2>
+                What Learners Say
+            </h2>
 
             <p>
-                Simple learning. Practical skills. Real growth.
+                Learning experiences designed around
+                real learner needs.
             </p>
 
         </div>
@@ -1229,15 +1733,21 @@
                 </div>
 
                 <p>
-                    "The courses helped me understand digital
-                    marketing concepts in a much simpler way."
+                    "The courses are easy to understand
+                    and focus on skills that actually feel
+                    useful."
                 </p>
 
-                <div class="student">
-                    — Priya, Student
-                </div>
+                <span class="student">
+                    Priya S.
+                </span>
+
+                <span class="student-role">
+                    Digital Marketing Learner
+                </span>
 
             </div>
+
 
 
             <div class="testimonial">
@@ -1247,15 +1757,21 @@
                 </div>
 
                 <p>
-                    "I liked how the learning content focused
-                    on practical skills instead of only theory."
+                    "I liked the practical approach.
+                    The content helped me understand
+                    concepts much faster."
                 </p>
 
-                <div class="student">
-                    — Rahul, Learner
-                </div>
+                <span class="student">
+                    Rahul M.
+                </span>
+
+                <span class="student-role">
+                    SEO Learner
+                </span>
 
             </div>
+
 
 
             <div class="testimonial">
@@ -1265,15 +1781,20 @@
                 </div>
 
                 <p>
-                    "SkillNest gave me a good starting point for
-                    understanding SEO and online marketing."
+                    "SkillNest makes online learning
+                    feel simple and accessible."
                 </p>
 
-                <div class="student">
-                    — Ananya, Student
-                </div>
+                <span class="student">
+                    Ananya K.
+                </span>
+
+                <span class="student-role">
+                    Marketing Learner
+                </span>
 
             </div>
+
 
         </div>
 
@@ -1283,11 +1804,14 @@
 
 
 
-<!-- =========================
-     CALL TO ACTION
-========================== -->
+<!-- ==============================
+     CTA
+============================== -->
 
-<section class="cta" id="contact">
+<section
+    class="cta"
+    id="contact"
+>
 
     <div class="container">
 
@@ -1296,12 +1820,15 @@
         </h2>
 
         <p>
-            Start developing practical skills that can support
-            your academic and professional journey.
+            Start developing practical skills and
+            take the next step toward your goals.
         </p>
 
-        <a href="#courses" class="btn">
-            Explore Courses
+        <a
+            href="mailto:hello@skillnestacademy.com"
+            class="btn"
+        >
+            Get Started Today →
         </a>
 
     </div>
@@ -1310,71 +1837,111 @@
 
 
 
-<!-- =========================
+<!-- ==============================
      FOOTER
-========================== -->
+============================== -->
 
 <footer>
 
-    <div class="container footer-grid">
+    <div class="container">
 
 
-        <div class="footer-column">
+        <div class="footer-grid">
 
-            <div class="footer-logo">
 
-                <img src="logo.png" alt="SkillNest Academy Logo">
+            <div>
+
+                <img
+                    src="logo.png"
+                    alt="SkillNest Academy Logo"
+                    class="footer-logo"
+                >
+
+                <p class="footer-about">
+
+                    SkillNest Academy helps learners
+                    develop practical, career-focused
+                    skills through accessible and
+                    engaging online learning.
+
+                </p>
 
             </div>
 
-            <p>
-                Learn practical skills. Build your confidence.
-                Create your future.
-            </p>
+
+
+            <div class="footer-column">
+
+                <h3>
+                    Explore
+                </h3>
+
+                <a href="#home">
+                    Home
+                </a>
+
+                <a href="#courses">
+                    Courses
+                </a>
+
+                <a href="#about">
+                    About
+                </a>
+
+            </div>
+
+
+
+            <div class="footer-column">
+
+                <h3>
+                    Resources
+                </h3>
+
+                <a href="#courses">
+                    Popular Courses
+                </a>
+
+                <a href="#why-us">
+                    Why Choose Us
+                </a>
+
+                <a href="#contact">
+                    Contact
+                </a>
+
+            </div>
+
+
+
+            <div class="footer-column">
+
+                <h3>
+                    Connect
+                </h3>
+
+                <a href="mailto:hello@skillnestacademy.com">
+                    Email Us
+                </a>
+
+                <a href="#contact">
+                    Get Started
+                </a>
+
+            </div>
+
 
         </div>
 
 
-        <div class="footer-column">
 
-            <h3>Quick Links</h3>
+        <div class="footer-bottom">
 
-            <a href="#home">Home</a>
-            <a href="#courses">Courses</a>
-            <a href="#about">About</a>
-            <a href="#why-us">Why Us</a>
+            © 2026 SkillNest Academy.
+            All Rights Reserved.
 
         </div>
 
-
-        <div class="footer-column">
-
-            <h3>Courses</h3>
-
-            <a href="#courses">Digital Marketing</a>
-            <a href="#courses">SEO</a>
-            <a href="#courses">Social Media</a>
-            <a href="#courses">Web Development</a>
-
-        </div>
-
-
-        <div class="footer-column">
-
-            <h3>Contact</h3>
-
-            <p>Email: hello@skillnestacademy.com</p>
-
-            <p>Online Learning Platform</p>
-
-        </div>
-
-    </div>
-
-
-    <div class="container copyright">
-
-        © 2026 SkillNest Academy. All Rights Reserved.
 
     </div>
 
@@ -1382,32 +1949,55 @@
 
 
 
-<!-- =========================
-     SEARCH FUNCTION
-========================== -->
+<!-- ==============================
+     JAVASCRIPT
+============================== -->
 
 <script>
 
-    const searchInput = document.getElementById("courseSearch");
 
-    const courseCards = document.querySelectorAll(".course-card");
+    /* MOBILE MENU */
 
-    const noResults = document.getElementById("noResults");
+    function toggleMenu() {
+
+        const nav = document.getElementById("navLinks");
+
+        nav.classList.toggle("active");
+
+    }
+
+
+
+    /* COURSE SEARCH */
+
+    const searchInput =
+        document.getElementById("courseSearch");
+
+    const courseCards =
+        document.querySelectorAll(".course-card");
+
+    const noResults =
+        document.getElementById("noResults");
 
 
     searchInput.addEventListener("input", function () {
 
-        const searchTerm = searchInput.value.toLowerCase().trim();
+        const searchTerm =
+            this.value.toLowerCase().trim();
 
         let visibleCourses = 0;
 
 
         courseCards.forEach(function (card) {
 
-            const courseText = card.innerText.toLowerCase();
+            const courseName =
+                card.getAttribute("data-course");
 
-
-            if (courseText.includes(searchTerm)) {
+            if (
+                courseName.includes(searchTerm)
+                ||
+                searchTerm === ""
+            ) {
 
                 card.style.display = "block";
 
@@ -1433,6 +2023,24 @@
         }
 
     });
+
+
+
+    /* CLOSE MOBILE MENU AFTER CLICK */
+
+    document.querySelectorAll(".nav-links a")
+        .forEach(function (link) {
+
+            link.addEventListener("click", function () {
+
+                document
+                    .getElementById("navLinks")
+                    .classList.remove("active");
+
+            });
+
+        });
+
 
 </script>
 
