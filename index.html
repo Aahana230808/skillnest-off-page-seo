@@ -1,1028 +1,939 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>SkillNest Academy | Learn Today. Lead Tomorrow.</title>
-
-    <meta name="description"
-        content="SkillNest Academy helps learners build practical, career-focused skills through accessible online courses.">
-
-    <link rel="icon" type="image/png" href="logo.png">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap"
-        rel="stylesheet">
-
-    <style>
-
-        /* =========================
-           GLOBAL STYLES
-        ========================= */
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: "Inter", sans-serif;
-            color: #1E293B;
-            background: #ffffff;
-            line-height: 1.6;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        button,
-        input {
-            font-family: inherit;
-        }
-
-        .container {
-            width: min(1180px, 92%);
-            margin: auto;
-        }
-
-        .section {
-            padding: 90px 0;
-        }
-
-        .section-title {
-            text-align: center;
-            font-family: "Poppins", sans-serif;
-            font-size: 38px;
-            margin-bottom: 12px;
-            color: #1E293B;
-        }
-
-        .section-subtitle {
-            text-align: center;
-            color: #64748B;
-            max-width: 650px;
-            margin: 0 auto 50px;
-        }
-
-        .blue {
-            color: #2563EB;
-        }
-
-        /* =========================
-           NAVIGATION
-        ========================= */
-
-        header {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            background: rgba(255,255,255,0.97);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid #E2E8F0;
-        }
-
-        .navbar {
-            min-height: 92px;
-            display: flex;
-            align-items: center;
-            gap: 28px;
-        }
-
-        .brand {
-            display: flex;
-            align-items: center;
-            flex-shrink: 0;
-        }
-
-        .brand img {
-            width: 125px;
-            height: 82px;
-            object-fit: contain;
-            display: block;
-        }
-
-        /* SEARCH */
-
-        .search-box {
-            display: flex;
-            align-items: center;
-            width: 300px;
-            height: 48px;
-            border: 1px solid #CBD5E1;
-            border-radius: 30px;
-            overflow: hidden;
-            background: #F8FAFC;
-            transition: 0.3s;
-        }
-
-        .search-box:focus-within {
-            border-color: #2563EB;
-            box-shadow: 0 0 0 4px rgba(37,99,235,0.10);
-            background: white;
-        }
-
-        .search-box input {
-            border: none;
-            outline: none;
-            background: transparent;
-            padding: 0 18px;
-            flex: 1;
-            font-size: 14px;
-            color: #1E293B;
-        }
-
-        .search-btn {
-            width: 46px;
-            height: 46px;
-            border: none;
-            background: #2563EB;
-            color: white;
-            border-radius: 50%;
-            margin-right: 2px;
-            cursor: pointer;
-            font-size: 18px;
-        }
-
-        /* NAV LINKS */
-
-        .nav-links {
-            display: flex;
-            align-items: center;
-            gap: 26px;
-            margin-left: auto;
-        }
-
-        .nav-links a {
-            font-weight: 600;
-            font-size: 14px;
-            color: #1E293B;
-            transition: 0.25s;
-        }
-
-        .nav-links a:hover {
-            color: #2563EB;
-        }
-
-        .nav-cta {
-            background: #2563EB;
-            color: white !important;
-            padding: 13px 20px;
-            border-radius: 9px;
-        }
-
-        .nav-cta:hover {
-            background: #1D4ED8;
-            color: white !important;
-        }
-
-        /* =========================
-           HERO
-        ========================= */
-
-        .hero {
-            background:
-                radial-gradient(circle at 90% 10%, rgba(37,99,235,0.12), transparent 30%),
-                linear-gradient(135deg, #EFF6FF, #FFFFFF);
-            padding: 85px 0 80px;
-            overflow: hidden;
-        }
-
-        .hero-grid {
-            display: grid;
-            grid-template-columns: 1.15fr 0.85fr;
-            align-items: center;
-            gap: 60px;
-        }
-
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: #DBEAFE;
-            color: #1D4ED8;
-            padding: 8px 14px;
-            border-radius: 30px;
-            font-size: 13px;
-            font-weight: 700;
-            margin-bottom: 22px;
-        }
-
-        .hero h1 {
-            font-family: "Poppins", sans-serif;
-            font-size: clamp(45px, 5vw, 70px);
-            line-height: 1.05;
-            margin-bottom: 25px;
-            letter-spacing: -2px;
-        }
-
-        .hero h1 span {
-            color: #2563EB;
-        }
-
-        .hero p {
-            font-size: 18px;
-            color: #64748B;
-            max-width: 650px;
-            margin-bottom: 30px;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 14px;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 15px 24px;
-            border-radius: 9px;
-            font-weight: 700;
-            border: none;
-            cursor: pointer;
-            transition: 0.25s;
-        }
-
-        .btn-primary {
-            background: #2563EB;
-            color: white;
-        }
-
-        .btn-primary:hover {
-            background: #1D4ED8;
-            transform: translateY(-2px);
-        }
-
-        .btn-secondary {
-            background: #F97316;
-            color: white;
-        }
-
-        .btn-secondary:hover {
-            background: #EA580C;
-            transform: translateY(-2px);
-        }
-
-        /* HERO CARD */
-
-        .hero-card {
-            background: white;
-            padding: 42px;
-            border-radius: 24px;
-            border: 1px solid #E2E8F0;
-            box-shadow: 0 25px 60px rgba(30,41,59,0.10);
-        }
-
-        .hero-card-top {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 28px;
-        }
-
-        .mini-icon {
-            width: 54px;
-            height: 54px;
-            border-radius: 14px;
-            background: #EFF6FF;
-            display: grid;
-            place-items: center;
-            font-size: 28px;
-        }
-
-        .rating {
-            color: #F59E0B;
-            font-weight: 700;
-        }
-
-        .hero-card h3 {
-            font-family: "Poppins", sans-serif;
-            font-size: 25px;
-            margin-bottom: 10px;
-        }
-
-        .hero-card p {
-            font-size: 15px;
-            margin-bottom: 25px;
-        }
-
-        .progress {
-            height: 8px;
-            background: #E2E8F0;
-            border-radius: 10px;
-            overflow: hidden;
-        }
-
-        .progress span {
-            display: block;
-            width: 78%;
-            height: 100%;
-            background: #2563EB;
-            border-radius: inherit;
-        }
-
-        .hero-card-footer {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 12px;
-            color: #64748B;
-            font-size: 13px;
-        }
-
-        /* =========================
-           STATS
-        ========================= */
-
-        .stats {
-            background: #1E293B;
-            color: white;
-            padding: 45px 0;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(4,1fr);
-            text-align: center;
-        }
-
-        .stat h2 {
-            font-family: "Poppins", sans-serif;
-            font-size: 35px;
-            color: #60A5FA;
-        }
-
-        .stat p {
-            color: #CBD5E1;
-            font-size: 14px;
-        }
-
-        /* =========================
-           CATEGORIES
-        ========================= */
-
-        .categories {
-            background: #F8FAFC;
-        }
-
-        .category-grid {
-            display: grid;
-            grid-template-columns: repeat(5,1fr);
-            gap: 16px;
-        }
-
-        .category {
-            background: white;
-            border: 1px solid #E2E8F0;
-            padding: 25px 18px;
-            border-radius: 16px;
-            text-align: center;
-            transition: 0.25s;
-            cursor: pointer;
-        }
-
-        .category:hover {
-            transform: translateY(-5px);
-            border-color: #93C5FD;
-            box-shadow: 0 12px 25px rgba(37,99,235,0.10);
-        }
-
-        .category-icon {
-            font-size: 30px;
-            margin-bottom: 12px;
-        }
-
-        .category h3 {
-            font-size: 15px;
-            margin-bottom: 4px;
-        }
-
-        .category p {
-            font-size: 12px;
-            color: #64748B;
-        }
-
-        /* =========================
-           COURSES
-        ========================= */
-
-        .course-grid {
-            display: grid;
-            grid-template-columns: repeat(3,1fr);
-            gap: 24px;
-        }
-
-        .course-card {
-            border: 1px solid #E2E8F0;
-            border-radius: 18px;
-            overflow: hidden;
-            background: white;
-            transition: 0.3s;
-        }
-
-        .course-card:hover {
-            transform: translateY(-7px);
-            box-shadow: 0 20px 35px rgba(15,23,42,0.10);
-        }
-
-        .course-top {
-            height: 145px;
-            background: linear-gradient(135deg,#DBEAFE,#EFF6FF);
-            display: grid;
-            place-items: center;
-            font-size: 55px;
-        }
-
-        .course-content {
-            padding: 22px;
-        }
-
-        .course-tag {
-            display: inline-block;
-            background: #FFF7ED;
-            color: #EA580C;
-            padding: 5px 10px;
-            border-radius: 20px;
-            font-size: 11px;
-            font-weight: 700;
-            margin-bottom: 12px;
-        }
-
-        .course-card h3 {
-            font-family: "Poppins", sans-serif;
-            font-size: 18px;
-            margin-bottom: 8px;
-        }
-
-        .course-card p {
-            color: #64748B;
-            font-size: 13px;
-            margin-bottom: 18px;
-        }
-
-        .course-meta {
-            display: flex;
-            justify-content: space-between;
-            font-size: 12px;
-            color: #64748B;
-            border-top: 1px solid #E2E8F0;
-            padding-top: 15px;
-        }
-
-        .course-rating {
-            color: #F59E0B;
-            font-weight: 700;
-        }
-
-        /* =========================
-           CAREER PATH
-        ========================= */
-
-        .career-section {
-            background: #F8FAFC;
-        }
-
-        .career-grid {
-            display: grid;
-            grid-template-columns: repeat(3,1fr);
-            gap: 24px;
-        }
-
-        .career-card {
-            background: white;
-            padding: 30px;
-            border-radius: 18px;
-            border: 1px solid #E2E8F0;
-        }
-
-        .career-card span {
-            font-size: 34px;
-        }
-
-        .career-card h3 {
-            font-family: "Poppins", sans-serif;
-            margin: 15px 0 8px;
-        }
-
-        .career-card p {
-            color: #64748B;
-            font-size: 14px;
-            margin-bottom: 18px;
-        }
-
-        .career-link {
-            color: #2563EB;
-            font-weight: 700;
-            font-size: 13px;
-        }
-
-        /* =========================
-           WHY SKILLNEST
-        ========================= */
-
-        .why-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-        }
-
-        .why-image {
-            background: linear-gradient(135deg,#2563EB,#1D4ED8);
-            border-radius: 25px;
-            padding: 55px;
-            color: white;
-            text-align: center;
-        }
-
-        .why-image .big-icon {
-            font-size: 90px;
-            margin-bottom: 15px;
-        }
-
-        .why-image h3 {
-            font-family: "Poppins", sans-serif;
-            font-size: 28px;
-        }
-
-        .why-list {
-            display: grid;
-            gap: 18px;
-        }
-
-        .why-item {
-            display: flex;
-            gap: 15px;
-            align-items: flex-start;
-        }
-
-        .check {
-            width: 38px;
-            height: 38px;
-            flex-shrink: 0;
-            border-radius: 10px;
-            background: #DBEAFE;
-            color: #2563EB;
-            display: grid;
-            place-items: center;
-            font-weight: 800;
-        }
-
-        .why-item h3 {
-            margin-bottom: 4px;
-            font-size: 16px;
-        }
-
-        .why-item p {
-            color: #64748B;
-            font-size: 13px;
-        }
-
-        /* =========================
-           TESTIMONIALS
-        ========================= */
-
-        .testimonials {
-            background: #F8FAFC;
-        }
-
-        .testimonial-grid {
-            display: grid;
-            grid-template-columns: repeat(3,1fr);
-            gap: 24px;
-        }
-
-        .testimonial {
-            background: white;
-            padding: 28px;
-            border: 1px solid #E2E8F0;
-            border-radius: 18px;
-        }
-
-        .stars {
-            color: #F59E0B;
-            margin-bottom: 15px;
-        }
-
-        .testimonial p {
-            color: #475569;
-            font-size: 14px;
-            margin-bottom: 20px;
-        }
-
-        .student {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .avatar {
-            width: 42px;
-            height: 42px;
-            background: #DBEAFE;
-            color: #2563EB;
-            border-radius: 50%;
-            display: grid;
-            place-items: center;
-            font-weight: 800;
-        }
-
-        .student strong {
-            display: block;
-            font-size: 14px;
-        }
-
-        .student span {
-            font-size: 12px;
-            color: #64748B;
-        }
-
-        /* =========================
-           FAQ
-        ========================= */
-
-        .faq {
-            max-width: 800px;
-            margin: auto;
-        }
-
-        details {
-            border: 1px solid #E2E8F0;
-            border-radius: 12px;
-            padding: 18px 20px;
-            margin-bottom: 12px;
-            background: white;
-        }
-
-        summary {
-            cursor: pointer;
-            font-weight: 700;
-        }
-
-        details p {
-            color: #64748B;
-            margin-top: 12px;
-            font-size: 14px;
-        }
-
-        /* =========================
-           NEWSLETTER
-        ========================= */
-
-        .newsletter {
-            padding: 80px 0;
-        }
-
-        .newsletter-box {
-            background: linear-gradient(135deg,#2563EB,#1D4ED8);
-            color: white;
-            padding: 55px;
-            border-radius: 24px;
-            text-align: center;
-        }
-
-        .newsletter-box h2 {
-            font-family: "Poppins", sans-serif;
-            font-size: 35px;
-            margin-bottom: 10px;
-        }
-
-        .newsletter-box p {
-            color: #DBEAFE;
-            margin-bottom: 25px;
-        }
-
-        .newsletter-form {
-            display: flex;
-            max-width: 550px;
-            margin: auto;
-            gap: 10px;
-        }
-
-        .newsletter-form input {
-            flex: 1;
-            padding: 15px;
-            border-radius: 8px;
-            border: none;
-            outline: none;
-        }
-
-        .newsletter-form button {
-            padding: 15px 22px;
-            background: #F97316;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-weight: 700;
-            cursor: pointer;
-        }
-
-        /* =========================
-           FOOTER
-        ========================= */
-
-        footer {
-            background: #0F172A;
-            color: white;
-            padding: 65px 0 25px;
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 1.5fr 1fr 1fr 1fr;
-            gap: 50px;
-        }
-
-        .footer-brand h2 {
-            font-family: "Poppins", sans-serif;
-            color: white;
-            margin-bottom: 10px;
-        }
-
-        .footer-brand p {
-            color: #94A3B8;
-            font-size: 14px;
-            max-width: 300px;
-        }
-
-        .footer-column h3 {
-            font-size: 15px;
-            margin-bottom: 18px;
-        }
-
-        .footer-column a {
-            display: block;
-            color: #94A3B8;
-            font-size: 13px;
-            margin-bottom: 11px;
-            transition: 0.2s;
-        }
-
-        .footer-column a:hover {
-            color: white;
-        }
-
-        .footer-bottom {
-            border-top: 1px solid #334155;
-            margin-top: 45px;
-            padding-top: 22px;
-            text-align: center;
-            color: #64748B;
-            font-size: 12px;
-        }
-
-        /* =========================
-           SEARCH MESSAGE
-        ========================= */
-
-        #noResults {
-            display: none;
-            text-align: center;
-            color: #64748B;
-            padding: 30px;
-        }
-
-        /* =========================
-           RESPONSIVE
-        ========================= */
-
-        @media (max-width: 1000px) {
-
-            .search-box {
-                width: 230px;
-            }
-
-            .nav-links {
-                gap: 15px;
-            }
-
-            .nav-links a {
-                font-size: 12px;
-            }
-
-            .hero-grid,
-            .why-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .category-grid {
-                grid-template-columns: repeat(3,1fr);
-            }
-
-            .course-grid,
-            .career-grid,
-            .testimonial-grid {
-                grid-template-columns: repeat(2,1fr);
-            }
-
-            .footer-grid {
-                grid-template-columns: repeat(2,1fr);
-            }
-        }
-
-        @media (max-width: 700px) {
-
-            .navbar {
-                flex-wrap: wrap;
-                padding: 12px 0;
-            }
-
-            .brand img {
-                width: 100px;
-                height: 65px;
-            }
-
-            .search-box {
-                order: 3;
-                width: 100%;
-            }
-
-            .nav-links {
-                width: 100%;
-                justify-content: center;
-                flex-wrap: wrap;
-                margin: 8px 0;
-            }
-
-            .hero {
-                padding: 55px 0;
-            }
-
-            .hero h1 {
-                font-size: 42px;
-            }
-
-            .hero-grid {
-                gap: 35px;
-            }
-
-            .stats-grid {
-                grid-template-columns: repeat(2,1fr);
-                gap: 25px;
-            }
-
-            .category-grid,
-            .course-grid,
-            .career-grid,
-            .testimonial-grid,
-            .footer-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .section-title {
-                font-size: 30px;
-            }
-
-            .newsletter-box {
-                padding: 35px 20px;
-            }
-
-            .newsletter-form {
-                flex-direction: column;
-            }
-
-            .newsletter-form button {
-                width: 100%;
-            }
-        }
-
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>SkillNest Academy | Learn Today. Lead Tomorrow.</title>
+
+<meta name="description" content="SkillNest Academy offers practical, career-focused online courses in digital marketing, SEO, social media, business and technology.">
+
+<style>
+
+/* =========================
+   GLOBAL STYLES
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #1e293b;
+    background: #ffffff;
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+.container {
+    width: 90%;
+    max-width: 1180px;
+    margin: auto;
+}
+
+
+/* =========================
+   NAVIGATION
+========================= */
+
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(255,255,255,0.97);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.nav-inner {
+    min-height: 92px;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.logo {
+    width: 145px;
+    height: 78px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.search-box {
+    flex: 1;
+    max-width: 360px;
+    position: relative;
+}
+
+.search-box input {
+    width: 100%;
+    height: 48px;
+    border: 1px solid #cbd5e1;
+    border-radius: 30px;
+    padding: 0 55px 0 20px;
+    font-size: 15px;
+    outline: none;
+    transition: 0.3s;
+}
+
+.search-box input:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 4px rgba(37,99,235,0.12);
+}
+
+.search-icon {
+    position: absolute;
+    right: 6px;
+    top: 6px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #2563eb;
+    color: white;
+    border: none;
+    font-size: 17px;
+    cursor: pointer;
+}
+
+.nav-links {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 26px;
+}
+
+.nav-links a {
+    font-weight: 600;
+    font-size: 15px;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: #2563eb;
+}
+
+.nav-button {
+    background: #2563eb;
+    color: white !important;
+    padding: 13px 20px;
+    border-radius: 8px;
+}
+
+.nav-button:hover {
+    background: #1d4ed8;
+    transform: translateY(-2px);
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    background:
+        radial-gradient(circle at 80% 30%, rgba(37,99,235,0.12), transparent 30%),
+        linear-gradient(135deg, #f8fbff, #eef5ff);
+    padding: 100px 0 90px;
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    align-items: center;
+    gap: 70px;
+}
+
+.badge {
+    display: inline-block;
+    background: #dbeafe;
+    color: #1d4ed8;
+    padding: 8px 16px;
+    border-radius: 30px;
+    font-weight: 700;
+    font-size: 14px;
+    margin-bottom: 22px;
+}
+
+.hero h1 {
+    font-size: clamp(48px, 6vw, 76px);
+    line-height: 1.05;
+    letter-spacing: -3px;
+    margin-bottom: 25px;
+}
+
+.hero h1 span {
+    color: #2563eb;
+}
+
+.hero p {
+    max-width: 650px;
+    font-size: 19px;
+    color: #64748b;
+    margin-bottom: 32px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.primary-btn,
+.secondary-btn {
+    padding: 15px 25px;
+    border-radius: 9px;
+    font-weight: 700;
+    display: inline-block;
+    transition: 0.3s;
+}
+
+.primary-btn {
+    background: #2563eb;
+    color: white;
+}
+
+.primary-btn:hover {
+    background: #1d4ed8;
+    transform: translateY(-3px);
+}
+
+.secondary-btn {
+    background: #fff;
+    color: #2563eb;
+    border: 1px solid #cbd5e1;
+}
+
+.secondary-btn:hover {
+    border-color: #2563eb;
+    transform: translateY(-3px);
+}
+
+.hero-card {
+    background: white;
+    border-radius: 25px;
+    padding: 45px;
+    box-shadow: 0 25px 70px rgba(37,99,235,0.15);
+    border: 1px solid #e2e8f0;
+    text-align: center;
+}
+
+.hero-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 25px;
+    background: #eff6ff;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 42px;
+}
+
+.hero-card h2 {
+    font-size: 27px;
+    margin-bottom: 12px;
+}
+
+.hero-card p {
+    font-size: 16px;
+    margin: auto;
+}
+
+
+/* =========================
+   STATS
+========================= */
+
+.stats {
+    background: #1e293b;
+    color: white;
+    padding: 45px 0;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    text-align: center;
+}
+
+.stat h3 {
+    color: #60a5fa;
+    font-size: 36px;
+    margin-bottom: 3px;
+}
+
+.stat p {
+    color: #cbd5e1;
+}
+
+
+/* =========================
+   SECTION COMMON
+========================= */
+
+section {
+    scroll-margin-top: 100px;
+}
+
+.section {
+    padding: 95px 0;
+}
+
+.section-light {
+    background: #f8fafc;
+}
+
+.section-heading {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 55px;
+}
+
+.section-heading h2 {
+    font-size: 42px;
+    line-height: 1.15;
+    margin-bottom: 14px;
+}
+
+.section-heading p {
+    color: #64748b;
+    font-size: 17px;
+}
+
+
+/* =========================
+   CATEGORY PILLS
+========================= */
+
+.categories {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 40px;
+}
+
+.category {
+    border: 1px solid #cbd5e1;
+    padding: 10px 20px;
+    border-radius: 30px;
+    background: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.category:hover,
+.category.active {
+    background: #2563eb;
+    color: white;
+    border-color: #2563eb;
+}
+
+
+/* =========================
+   COURSE CARDS
+========================= */
+
+.course-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.course-card {
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 18px;
+    padding: 28px;
+    transition: 0.3s;
+}
+
+.course-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(15,23,42,0.1);
+}
+
+.course-icon {
+    width: 60px;
+    height: 60px;
+    background: #eff6ff;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.course-card h3 {
+    font-size: 21px;
+    margin-bottom: 10px;
+}
+
+.course-card p {
+    color: #64748b;
+    font-size: 15px;
+    margin-bottom: 18px;
+}
+
+.course-info {
+    display: flex;
+    justify-content: space-between;
+    color: #64748b;
+    font-size: 14px;
+    border-top: 1px solid #e2e8f0;
+    padding-top: 15px;
+}
+
+
+/* =========================
+   CAREER PATHS
+========================= */
+
+.path-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.path-card {
+    padding: 30px;
+    border-radius: 18px;
+    background: linear-gradient(135deg, #eff6ff, #ffffff);
+    border: 1px solid #dbeafe;
+    transition: 0.3s;
+}
+
+.path-card:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 15px 35px rgba(37,99,235,0.12);
+}
+
+.path-card .number {
+    font-size: 14px;
+    font-weight: 800;
+    color: #2563eb;
+    margin-bottom: 12px;
+}
+
+.path-card h3 {
+    margin-bottom: 10px;
+    font-size: 22px;
+}
+
+.path-card p {
+    color: #64748b;
+}
+
+
+/* =========================
+   WHY US
+========================= */
+
+.why-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
+}
+
+.why-card {
+    padding: 28px;
+    background: white;
+    border-radius: 16px;
+    border: 1px solid #e2e8f0;
+    text-align: center;
+}
+
+.why-icon {
+    font-size: 35px;
+    margin-bottom: 15px;
+}
+
+.why-card h3 {
+    margin-bottom: 8px;
+}
+
+.why-card p {
+    color: #64748b;
+    font-size: 14px;
+}
+
+
+/* =========================
+   TESTIMONIALS
+========================= */
+
+.testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.testimonial {
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 18px;
+    padding: 30px;
+}
+
+.stars {
+    color: #f59e0b;
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+.testimonial p {
+    color: #64748b;
+    margin-bottom: 20px;
+}
+
+.student {
+    font-weight: 700;
+}
+
+.student span {
+    display: block;
+    color: #94a3b8;
+    font-size: 13px;
+    font-weight: normal;
+}
+
+
+/* =========================
+   FAQ
+========================= */
+
+.faq-container {
+    max-width: 800px;
+    margin: auto;
+}
+
+.faq {
+    border-bottom: 1px solid #e2e8f0;
+    padding: 20px 0;
+}
+
+.faq-question {
+    width: 100%;
+    background: none;
+    border: none;
+    display: flex;
+    justify-content: space-between;
+    text-align: left;
+    font-size: 17px;
+    font-weight: 700;
+    cursor: pointer;
+    color: #1e293b;
+}
+
+.faq-answer {
+    display: none;
+    padding-top: 12px;
+    color: #64748b;
+}
+
+.faq.open .faq-answer {
+    display: block;
+}
+
+.faq-icon {
+    color: #2563eb;
+    font-size: 22px;
+}
+
+
+/* =========================
+   CTA
+========================= */
+
+.cta {
+    padding: 100px 0;
+    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+    color: white;
+    text-align: center;
+}
+
+.cta h2 {
+    font-size: 48px;
+    margin-bottom: 15px;
+}
+
+.cta p {
+    max-width: 650px;
+    margin: 0 auto 30px;
+    font-size: 18px;
+    color: #dbeafe;
+}
+
+.cta .primary-btn {
+    background: white;
+    color: #2563eb;
+}
+
+.cta .primary-btn:hover {
+    background: #eff6ff;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    background: #0f172a;
+    color: white;
+    padding: 70px 0 25px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1fr;
+    gap: 50px;
+}
+
+.footer-brand img {
+    width: 150px;
+    height: auto;
+    background: white;
+    border-radius: 10px;
+    padding: 5px;
+    margin-bottom: 20px;
+}
+
+.footer-brand p {
+    color: #94a3b8;
+    max-width: 300px;
+}
+
+footer h3 {
+    margin-bottom: 20px;
+    font-size: 17px;
+}
+
+.footer-links {
+    list-style: none;
+}
+
+.footer-links li {
+    margin-bottom: 11px;
+}
+
+.footer-links a {
+    color: #94a3b8;
+    transition: 0.3s;
+}
+
+.footer-links a:hover {
+    color: white;
+    padding-left: 4px;
+}
+
+
+/* SOCIAL ICONS */
+
+.socials {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.social {
+    width: 42px;
+    height: 42px;
+    border: 1px solid #334155;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 17px;
+    color: #cbd5e1;
+    transition: 0.3s;
+}
+
+.social:hover {
+    background: #2563eb;
+    border-color: #2563eb;
+    color: white;
+    transform: translateY(-4px);
+}
+
+.footer-bottom {
+    border-top: 1px solid #1e293b;
+    margin-top: 50px;
+    padding-top: 25px;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    color: #64748b;
+    font-size: 14px;
+}
+
+.back-top {
+    color: #94a3b8;
+}
+
+.back-top:hover {
+    color: white;
+}
+
+
+/* =========================
+   BACK TO TOP
+========================= */
+
+#topButton {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 48px;
+    height: 48px;
+    border: none;
+    border-radius: 50%;
+    background: #2563eb;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    display: none;
+    z-index: 999;
+    box-shadow: 0 10px 25px rgba(37,99,235,0.3);
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 950px) {
+
+    .nav-inner {
+        flex-wrap: wrap;
+        padding: 12px 0;
+    }
+
+    .logo {
+        width: 125px;
+        height: 65px;
+    }
+
+    .search-box {
+        order: 3;
+        max-width: 100%;
+        flex-basis: 100%;
+    }
+
+    .nav-links {
+        gap: 14px;
+        font-size: 13px;
+    }
+
+    .hero-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+
+    .course-grid,
+    .path-grid,
+    .testimonial-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .why-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+
+@media (max-width: 650px) {
+
+    .nav-links {
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+        order: 4;
+        padding-bottom: 10px;
+    }
+
+    .nav-button {
+        display: none;
+    }
+
+    .hero {
+        padding: 65px 0;
+    }
+
+    .hero h1 {
+        font-size: 46px;
+        letter-spacing: -2px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    .hero-card {
+        padding: 30px;
+    }
+
+    .section {
+        padding: 65px 0;
+    }
+
+    .section-heading h2 {
+        font-size: 34px;
+    }
+
+    .stats-grid,
+    .course-grid,
+    .path-grid,
+    .testimonial-grid,
+    .why-grid,
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+</style>
 </head>
 
-<body>
+
+<body id="top">
+
 
 <!-- =========================
      NAVIGATION
 ========================= -->
 
-<header>
+<header class="navbar">
 
-    <div class="container navbar">
+<div class="container nav-inner">
 
-        <a href="#home" class="brand">
-            <img src="logo.png" alt="SkillNest Academy Logo">
-        </a>
+<a href="#top">
+<img src="logo.png" alt="SkillNest Academy Logo" class="logo">
+</a>
 
-        <div class="search-box">
+<div class="search-box">
+<input
+type="text"
+id="courseSearch"
+placeholder="What do you want to learn?"
+aria-label="Search courses"
+>
+<button class="search-icon" onclick="searchCourses()">🔍</button>
+</div>
 
-            <input
-                type="text"
-                id="courseSearch"
-                placeholder="What do you want to learn?"
-                aria-label="Search courses"
-            >
+<nav class="nav-links">
 
-            <button class="search-btn">🔍</button>
+<a href="#top">Home</a>
 
-        </div>
+<a href="#courses">Explore</a>
 
-        <nav class="nav-links">
+<a href="#courses">Courses</a>
 
-            <a href="#home">Home</a>
-            <a href="#categories">Explore</a>
-            <a href="#courses">Courses</a>
-            <a href="#career">Career Paths</a>
-            <a href="#why">Why Us</a>
-            <a href="#contact">Contact</a>
+<a href="#career">Career Paths</a>
 
-            <a href="#courses" class="nav-cta">
-                Start Learning
-            </a>
+<a href="#why">Why Us</a>
 
-        </nav>
+<a href="#contact">Contact</a>
 
-    </div>
+<a href="#courses" class="nav-button">Start Learning</a>
+
+</nav>
+
+</div>
 
 </header>
+
 
 
 <!-- =========================
      HERO
 ========================= -->
 
-<section class="hero" id="home">
+<section class="hero">
 
-    <div class="container hero-grid">
+<div class="container hero-grid">
 
-        <div>
+<div>
 
-            <div class="hero-badge">
-                🚀 Learn skills that move your career forward
-            </div>
+<div class="badge">
+🚀 Learn skills that move your career forward
+</div>
 
-            <h1>
-                Learn Skills.<br>
-                <span>Build Your Future.</span>
-            </h1>
+<h1>
+Your Future Starts<br>
+With <span>One Skill.</span>
+</h1>
 
-            <p>
-                SkillNest Academy helps learners develop practical,
-                career-focused skills through accessible and engaging
-                online courses.
-            </p>
+<p>
+Build practical, career-focused skills through accessible
+online learning designed to help you learn faster,
+build confidence and move closer to your goals.
+</p>
 
-            <div class="hero-buttons">
+<div class="hero-buttons">
 
-                <a href="#courses" class="btn btn-primary">
-                    Explore Courses →
-                </a>
+<a href="#courses" class="primary-btn">
+Explore Courses →
+</a>
 
-                <a href="#career" class="btn btn-secondary">
-                    Find Your Career Path
-                </a>
+<a href="#why" class="secondary-btn">
+Why SkillNest?
+</a>
 
-            </div>
+</div>
 
-        </div>
+</div>
 
 
-        <div class="hero-card">
+<div class="hero-card">
 
-            <div class="hero-card-top">
+<div class="hero-icon">
+🎓
+</div>
 
-                <div class="mini-icon">
-                    🎓
-                </div>
+<h2>
+Learn. Grow. Succeed.
+</h2>
 
-                <div class="rating">
-                    ★ 4.9
-                </div>
+<p>
+Learn practical skills, discover new career possibilities
+and build the confidence to take your next step.
+</p>
 
-            </div>
+</div>
 
-            <h3>
-                Your learning journey starts here.
-            </h3>
-
-            <p>
-                Build in-demand skills, learn at your own pace
-                and take the next step toward your career goals.
-            </p>
-
-            <div class="progress">
-                <span></span>
-            </div>
-
-            <div class="hero-card-footer">
-                <span>Learning Progress</span>
-                <strong>78%</strong>
-            </div>
-
-        </div>
-
-    </div>
+</div>
 
 </section>
+
 
 
 <!-- =========================
@@ -1031,755 +942,638 @@
 
 <section class="stats">
 
-    <div class="container stats-grid">
+<div class="container stats-grid">
 
-        <div class="stat">
-            <h2>10+</h2>
-            <p>Career-Focused Courses</p>
-        </div>
+<div class="stat">
+<h3>10+</h3>
+<p>Career-Focused Courses</p>
+</div>
 
-        <div class="stat">
-            <h2>500+</h2>
-            <p>Learners</p>
-        </div>
+<div class="stat">
+<h3>500+</h3>
+<p>Learners</p>
+</div>
 
-        <div class="stat">
-            <h2>95%</h2>
-            <p>Student Satisfaction</p>
-        </div>
+<div class="stat">
+<h3>95%</h3>
+<p>Student Satisfaction</p>
+</div>
 
-        <div class="stat">
-            <h2>24/7</h2>
-            <p>Learning Access</p>
-        </div>
+<div class="stat">
+<h3>24/7</h3>
+<p>Learning Access</p>
+</div>
 
-    </div>
+</div>
 
 </section>
+
 
 
 <!-- =========================
-     CATEGORIES
+     COURSES
 ========================= -->
 
-<section class="section categories" id="categories">
+<section class="section section-light" id="courses">
 
-    <div class="container">
+<div class="container">
 
-        <h2 class="section-title">
-            Explore <span class="blue">Learning Categories</span>
-        </h2>
+<div class="section-heading">
 
-        <p class="section-subtitle">
-            Find practical skills designed to help you learn,
-            grow and become career-ready.
-        </p>
+<h2>
+Explore What You Can Learn
+</h2>
+
+<p>
+Choose a skill, build your knowledge and take
+your career in a new direction.
+</p>
+
+</div>
 
 
-        <div class="category-grid">
+<div class="categories">
 
-            <div class="category">
-                <div class="category-icon">📈</div>
-                <h3>Digital Marketing</h3>
-                <p>4 Courses</p>
-            </div>
+<button class="category active" onclick="filterCourses('all', this)">
+All
+</button>
 
-            <div class="category">
-                <div class="category-icon">🔎</div>
-                <h3>SEO</h3>
-                <p>3 Courses</p>
-            </div>
+<button class="category" onclick="filterCourses('marketing', this)">
+Marketing
+</button>
 
-            <div class="category">
-                <div class="category-icon">📱</div>
-                <h3>Social Media</h3>
-                <p>4 Courses</p>
-            </div>
+<button class="category" onclick="filterCourses('seo', this)">
+SEO
+</button>
 
-            <div class="category">
-                <div class="category-icon">💼</div>
-                <h3>Business</h3>
-                <p>5 Courses</p>
-            </div>
+<button class="category" onclick="filterCourses('business', this)">
+Business
+</button>
 
-            <div class="category">
-                <div class="category-icon">💻</div>
-                <h3>Technology</h3>
-                <p>6 Courses</p>
-            </div>
+<button class="category" onclick="filterCourses('social', this)">
+Social Media
+</button>
 
-        </div>
+<button class="category" onclick="filterCourses('technology', this)">
+Technology
+</button>
 
-    </div>
+</div>
+
+
+<div class="course-grid" id="courseGrid">
+
+
+<div class="course-card" data-category="marketing">
+
+<div class="course-icon">📈</div>
+
+<h3>Digital Marketing</h3>
+
+<p>
+Learn marketing fundamentals, campaigns,
+branding and customer acquisition.
+</p>
+
+<div class="course-info">
+<span>⭐ 4.9</span>
+<span>Beginner</span>
+</div>
+
+</div>
+
+
+<div class="course-card" data-category="seo">
+
+<div class="course-icon">🔎</div>
+
+<h3>Search Engine Optimization</h3>
+
+<p>
+Understand keyword research, on-page SEO,
+technical SEO and link building.
+</p>
+
+<div class="course-info">
+<span>⭐ 4.8</span>
+<span>Beginner</span>
+</div>
+
+</div>
+
+
+<div class="course-card" data-category="social">
+
+<div class="course-icon">📱</div>
+
+<h3>Social Media Marketing</h3>
+
+<p>
+Create engaging content and develop
+effective social media strategies.
+</p>
+
+<div class="course-info">
+<span>⭐ 4.8</span>
+<span>Beginner</span>
+</div>
+
+</div>
+
+
+<div class="course-card" data-category="business">
+
+<div class="course-icon">💼</div>
+
+<h3>Business Fundamentals</h3>
+
+<p>
+Understand business strategy, customers,
+operations and professional growth.
+</p>
+
+<div class="course-info">
+<span>⭐ 4.7</span>
+<span>Beginner</span>
+</div>
+
+</div>
+
+
+<div class="course-card" data-category="technology">
+
+<div class="course-icon">💻</div>
+
+<h3>Web & Digital Skills</h3>
+
+<p>
+Build essential digital skills for the
+modern workplace and online world.
+</p>
+
+<div class="course-info">
+<span>⭐ 4.8</span>
+<span>Intermediate</span>
+</div>
+
+</div>
+
+
+<div class="course-card" data-category="marketing">
+
+<div class="course-icon">🎯</div>
+
+<h3>Content Marketing</h3>
+
+<p>
+Learn how to create useful content that
+attracts, engages and converts audiences.
+</p>
+
+<div class="course-info">
+<span>⭐ 4.9</span>
+<span>Beginner</span>
+</div>
+
+</div>
+
+
+</div>
+
+</div>
 
 </section>
 
-
-<!-- =========================
-     POPULAR COURSES
-========================= -->
-
-<section class="section" id="courses">
-
-    <div class="container">
-
-        <h2 class="section-title">
-            Learn Something <span class="blue">New</span>
-        </h2>
-
-        <p class="section-subtitle">
-            Explore our popular courses and develop skills
-            that employers value.
-        </p>
-
-
-        <div class="course-grid" id="courseGrid">
-
-
-            <div class="course-card" data-course="digital marketing">
-
-                <div class="course-top">
-                    📈
-                </div>
-
-                <div class="course-content">
-
-                    <span class="course-tag">
-                        MARKETING
-                    </span>
-
-                    <h3>
-                        Digital Marketing Fundamentals
-                    </h3>
-
-                    <p>
-                        Learn campaigns, branding, content,
-                        advertising and digital strategy.
-                    </p>
-
-                    <div class="course-meta">
-
-                        <span>⏱ 6 Weeks</span>
-
-                        <span class="course-rating">
-                            ★ 4.9
-                        </span>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <div class="course-card" data-course="seo search engine optimization">
-
-                <div class="course-top">
-                    🔎
-                </div>
-
-                <div class="course-content">
-
-                    <span class="course-tag">
-                        SEO
-                    </span>
-
-                    <h3>
-                        Search Engine Optimization
-                    </h3>
-
-                    <p>
-                        Master keyword research, on-page SEO,
-                        technical SEO and link building.
-                    </p>
-
-                    <div class="course-meta">
-
-                        <span>⏱ 5 Weeks</span>
-
-                        <span class="course-rating">
-                            ★ 4.8
-                        </span>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <div class="course-card" data-course="social media marketing">
-
-                <div class="course-top">
-                    📱
-                </div>
-
-                <div class="course-content">
-
-                    <span class="course-tag">
-                        SOCIAL MEDIA
-                    </span>
-
-                    <h3>
-                        Social Media Marketing
-                    </h3>
-
-                    <p>
-                        Create engaging content and build
-                        a powerful social media presence.
-                    </p>
-
-                    <div class="course-meta">
-
-                        <span>⏱ 4 Weeks</span>
-
-                        <span class="course-rating">
-                            ★ 4.9
-                        </span>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <div class="course-card" data-course="content marketing">
-
-                <div class="course-top">
-                    ✍️
-                </div>
-
-                <div class="course-content">
-
-                    <span class="course-tag">
-                        CONTENT
-                    </span>
-
-                    <h3>
-                        Content Marketing
-                    </h3>
-
-                    <p>
-                        Learn how to plan, create and distribute
-                        content that attracts the right audience.
-                    </p>
-
-                    <div class="course-meta">
-
-                        <span>⏱ 4 Weeks</span>
-
-                        <span class="course-rating">
-                            ★ 4.7
-                        </span>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <div class="course-card" data-course="business strategy">
-
-                <div class="course-top">
-                    💼
-                </div>
-
-                <div class="course-content">
-
-                    <span class="course-tag">
-                        BUSINESS
-                    </span>
-
-                    <h3>
-                        Business Strategy Essentials
-                    </h3>
-
-                    <p>
-                        Understand business planning, strategy,
-                        customers and competitive advantage.
-                    </p>
-
-                    <div class="course-meta">
-
-                        <span>⏱ 5 Weeks</span>
-
-                        <span class="course-rating">
-                            ★ 4.8
-                        </span>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <div class="course-card" data-course="personal branding">
-
-                <div class="course-top">
-                    ⭐
-                </div>
-
-                <div class="course-content">
-
-                    <span class="course-tag">
-                        CAREER
-                    </span>
-
-                    <h3>
-                        Personal Branding
-                    </h3>
-
-                    <p>
-                        Build your professional identity and
-                        stand out in today's competitive world.
-                    </p>
-
-                    <div class="course-meta">
-
-                        <span>⏱ 3 Weeks</span>
-
-                        <span class="course-rating">
-                            ★ 4.9
-                        </span>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-        <div id="noResults">
-            No courses found. Try another search.
-        </div>
-
-    </div>
-
-</section>
 
 
 <!-- =========================
      CAREER PATHS
 ========================= -->
 
-<section class="section career-section" id="career">
+<section class="section" id="career">
 
-    <div class="container">
+<div class="container">
 
-        <h2 class="section-title">
-            Choose Your <span class="blue">Career Path</span>
-        </h2>
+<div class="section-heading">
 
-        <p class="section-subtitle">
-            Don't know where to start? Follow a structured
-            learning path designed around your career goal.
-        </p>
+<h2>
+Choose Your Career Path
+</h2>
 
+<p>
+Don't know where to start? Pick a direction
+and discover the skills that can help you get there.
+</p>
 
-        <div class="career-grid">
-
-            <div class="career-card">
-
-                <span>📊</span>
-
-                <h3>Digital Marketer</h3>
-
-                <p>
-                    Learn SEO, social media, paid advertising,
-                    content and analytics.
-                </p>
-
-                <a href="#courses" class="career-link">
-                    Explore Path →
-                </a>
-
-            </div>
+</div>
 
 
-            <div class="career-card">
-
-                <span>🔍</span>
-
-                <h3>SEO Specialist</h3>
-
-                <p>
-                    Build expertise in search optimization,
-                    keywords, technical SEO and analytics.
-                </p>
-
-                <a href="#courses" class="career-link">
-                    Explore Path →
-                </a>
-
-            </div>
+<div class="path-grid">
 
 
-            <div class="career-card">
+<div class="path-card">
 
-                <span>🚀</span>
+<div class="number">01 — CREATIVE</div>
 
-                <h3>Entrepreneur</h3>
+<h3>Digital Marketer</h3>
 
-                <p>
-                    Develop business, marketing and personal
-                    branding skills to grow your ideas.
-                </p>
+<p>
+Build skills in digital marketing,
+content, SEO and social media.
+</p>
 
-                <a href="#courses" class="career-link">
-                    Explore Path →
-                </a>
+</div>
 
-            </div>
 
-        </div>
+<div class="path-card">
 
-    </div>
+<div class="number">02 — GROWTH</div>
+
+<h3>SEO Specialist</h3>
+
+<p>
+Learn how businesses grow their visibility
+and reach customers through search.
+</p>
+
+</div>
+
+
+<div class="path-card">
+
+<div class="number">03 — SOCIAL</div>
+
+<h3>Social Media Manager</h3>
+
+<p>
+Master content strategy, engagement
+and social media campaigns.
+</p>
+
+</div>
+
+
+<div class="path-card">
+
+<div class="number">04 — BUSINESS</div>
+
+<h3>Business Professional</h3>
+
+<p>
+Develop practical knowledge for modern
+business and professional environments.
+</p>
+
+</div>
+
+
+<div class="path-card">
+
+<div class="number">05 — CONTENT</div>
+
+<h3>Content Creator</h3>
+
+<p>
+Turn ideas into valuable content that
+connects with audiences.
+</p>
+
+</div>
+
+
+<div class="path-card">
+
+<div class="number">06 — DIGITAL</div>
+
+<h3>Digital Entrepreneur</h3>
+
+<p>
+Combine marketing, technology and
+business skills to build something of your own.
+</p>
+
+</div>
+
+
+</div>
+
+</div>
 
 </section>
+
 
 
 <!-- =========================
      WHY SKILLNEST
 ========================= -->
 
-<section class="section" id="why">
+<section class="section section-light" id="why">
 
-    <div class="container why-grid">
+<div class="container">
 
-        <div class="why-image">
+<div class="section-heading">
 
-            <div class="big-icon">
-                🎓
-            </div>
+<h2>
+Why Learn With SkillNest?
+</h2>
 
-            <h3>
-                Learn Today.<br>
-                Lead Tomorrow.
-            </h3>
+<p>
+Everything you need to turn learning into progress.
+</p>
 
-        </div>
-
-
-        <div>
-
-            <h2 class="section-title" style="text-align:left;">
-                Why <span class="blue">SkillNest?</span>
-            </h2>
-
-            <p style="color:#64748B; margin-bottom:30px;">
-                Learning should not feel complicated. SkillNest
-                focuses on practical, accessible and career-focused
-                learning.
-            </p>
+</div>
 
 
-            <div class="why-list">
-
-                <div class="why-item">
-
-                    <div class="check">✓</div>
-
-                    <div>
-                        <h3>Practical Learning</h3>
-
-                        <p>
-                            Learn concepts you can actually apply
-                            in real projects and professional situations.
-                        </p>
-                    </div>
-
-                </div>
+<div class="why-grid">
 
 
-                <div class="why-item">
+<div class="why-card">
 
-                    <div class="check">✓</div>
+<div class="why-icon">🎯</div>
 
-                    <div>
-                        <h3>Career-Focused Skills</h3>
+<h3>Practical Learning</h3>
 
-                        <p>
-                            Courses are designed around skills
-                            that can help you become job-ready.
-                        </p>
-                    </div>
+<p>
+Focus on useful skills that can actually
+be applied outside the classroom.
+</p>
 
-                </div>
+</div>
 
 
-                <div class="why-item">
+<div class="why-card">
 
-                    <div class="check">✓</div>
+<div class="why-icon">⚡</div>
 
-                    <div>
-                        <h3>Learn At Your Own Pace</h3>
+<h3>Learn at Your Pace</h3>
 
-                        <p>
-                            Access your learning resources whenever
-                            and wherever you need them.
-                        </p>
-                    </div>
+<p>
+Study when you want, wherever you are,
+without unnecessary pressure.
+</p>
 
-                </div>
+</div>
 
 
-                <div class="why-item">
+<div class="why-card">
 
-                    <div class="check">✓</div>
+<div class="why-icon">💡</div>
 
-                    <div>
-                        <h3>Beginner Friendly</h3>
+<h3>Career Focused</h3>
 
-                        <p>
-                            Start from the basics and gradually
-                            build your confidence and expertise.
-                        </p>
-                    </div>
+<p>
+Explore skills designed around modern
+career opportunities.
+</p>
 
-                </div>
+</div>
 
-            </div>
 
-        </div>
+<div class="why-card">
 
-    </div>
+<div class="why-icon">🤝</div>
+
+<h3>Learner First</h3>
+
+<p>
+A simple and accessible experience
+designed around learners.
+</p>
+
+</div>
+
+
+</div>
+
+</div>
 
 </section>
+
 
 
 <!-- =========================
      TESTIMONIALS
 ========================= -->
 
-<section class="section testimonials">
+<section class="section">
 
-    <div class="container">
+<div class="container">
 
-        <h2 class="section-title">
-            What Our <span class="blue">Learners Say</span>
-        </h2>
+<div class="section-heading">
 
-        <p class="section-subtitle">
-            Real learning experiences from people building
-            their skills with SkillNest.
-        </p>
+<h2>
+What Our Learners Say
+</h2>
 
+<p>
+Real learning should feel useful, motivating
+and worth your time.
+</p>
 
-        <div class="testimonial-grid">
-
-
-            <div class="testimonial">
-
-                <div class="stars">
-                    ★★★★★
-                </div>
-
-                <p>
-                    "The courses are simple to understand and
-                    actually helped me understand digital marketing
-                    instead of just memorising theory."
-                </p>
-
-                <div class="student">
-
-                    <div class="avatar">A</div>
-
-                    <div>
-                        <strong>Arjun</strong>
-                        <span>Digital Marketing Learner</span>
-                    </div>
-
-                </div>
-
-            </div>
+</div>
 
 
-            <div class="testimonial">
-
-                <div class="stars">
-                    ★★★★★
-                </div>
-
-                <p>
-                    "I liked that everything was organised clearly.
-                    The career paths made it much easier to understand
-                    what I should learn next."
-                </p>
-
-                <div class="student">
-
-                    <div class="avatar">R</div>
-
-                    <div>
-                        <strong>Riya</strong>
-                        <span>SEO Learner</span>
-                    </div>
-
-                </div>
-
-            </div>
+<div class="testimonial-grid">
 
 
-            <div class="testimonial">
+<div class="testimonial">
 
-                <div class="stars">
-                    ★★★★★
-                </div>
+<div class="stars">
+★★★★★
+</div>
 
-                <p>
-                    "SkillNest makes online learning feel less
-                    overwhelming. I could learn at my own pace
-                    and focus on practical skills."
-                </p>
+<p>
+"SkillNest made digital marketing much easier
+to understand. The learning experience felt
+simple and practical."
+</p>
 
-                <div class="student">
+<div class="student">
+Aarav
+<span>Digital Marketing Learner</span>
+</div>
 
-                    <div class="avatar">K</div>
+</div>
 
-                    <div>
-                        <strong>Karan</strong>
-                        <span>Business Learner</span>
-                    </div>
 
-                </div>
+<div class="testimonial">
 
-            </div>
+<div class="stars">
+★★★★★
+</div>
 
-        </div>
+<p>
+"I finally understood SEO concepts that
+previously seemed complicated. The structured
+learning approach helped a lot."
+</p>
 
-    </div>
+<div class="student">
+Riya
+<span>SEO Learner</span>
+</div>
+
+</div>
+
+
+<div class="testimonial">
+
+<div class="stars">
+★★★★★
+</div>
+
+<p>
+"The courses helped me understand what skills
+I actually need to improve for my career."
+</p>
+
+<div class="student">
+Kabir
+<span>Business Learner</span>
+</div>
+
+</div>
+
+
+</div>
+
+</div>
 
 </section>
+
 
 
 <!-- =========================
      FAQ
 ========================= -->
 
-<section class="section" id="faq">
+<section class="section section-light">
 
-    <div class="container">
+<div class="container">
 
-        <h2 class="section-title">
-            Frequently Asked <span class="blue">Questions</span>
-        </h2>
+<div class="section-heading">
 
-        <p class="section-subtitle">
-            Everything you need to know before starting your
-            learning journey.
-        </p>
+<h2>
+Frequently Asked Questions
+</h2>
 
+<p>
+Everything you might want to know before starting.
+</p>
 
-        <div class="faq">
-
-            <details>
-
-                <summary>
-                    Who can learn with SkillNest?
-                </summary>
-
-                <p>
-                    SkillNest is designed for students, beginners,
-                    professionals and anyone who wants to develop
-                    practical career-focused skills.
-                </p>
-
-            </details>
+</div>
 
 
-            <details>
-
-                <summary>
-                    Do I need prior experience?
-                </summary>
-
-                <p>
-                    No. Many of our courses are designed to be
-                    beginner-friendly and start with the fundamentals.
-                </p>
-
-            </details>
+<div class="faq-container">
 
 
-            <details>
+<div class="faq">
 
-                <summary>
-                    Can I learn at my own pace?
-                </summary>
+<button class="faq-question">
 
-                <p>
-                    Yes. The platform is designed to make learning
-                    flexible and accessible.
-                </p>
+Are SkillNest courses beginner friendly?
 
-            </details>
+<span class="faq-icon">+</span>
+
+</button>
+
+<div class="faq-answer">
+Yes. Many courses are designed to help learners
+start from the basics and gradually develop
+practical skills.
+</div>
+
+</div>
 
 
-            <details>
+<div class="faq">
 
-                <summary>
-                    What skills can I learn?
-                </summary>
+<button class="faq-question">
 
-                <p>
-                    You can explore digital marketing, SEO, social
-                    media, content, business, technology and career
-                    development.
-                </p>
+Can I learn at my own pace?
 
-            </details>
+<span class="faq-icon">+</span>
 
-        </div>
+</button>
 
-    </div>
+<div class="faq-answer">
+Yes. SkillNest is designed around flexible learning,
+allowing learners to study according to their own schedule.
+</div>
+
+</div>
+
+
+<div class="faq">
+
+<button class="faq-question">
+
+What subjects can I learn?
+
+<span class="faq-icon">+</span>
+
+</button>
+
+<div class="faq-answer">
+You can explore areas including digital marketing,
+SEO, social media, business, content and digital skills.
+</div>
+
+</div>
+
+
+<div class="faq">
+
+<button class="faq-question">
+
+Who is SkillNest for?
+
+<span class="faq-icon">+</span>
+
+</button>
+
+<div class="faq-answer">
+SkillNest is designed for students, beginners,
+career explorers and anyone looking to develop
+practical digital and professional skills.
+</div>
+
+</div>
+
+
+</div>
+
+</div>
 
 </section>
+
 
 
 <!-- =========================
-     NEWSLETTER
+     FINAL CTA
 ========================= -->
 
-<section class="newsletter" id="contact">
+<section class="cta" id="contact">
 
-    <div class="container">
+<div class="container">
 
-        <div class="newsletter-box">
+<h2>
+Your Future Starts With One Skill.
+</h2>
 
-            <h2>
-                Keep Learning. Keep Growing.
-            </h2>
+<p>
+Don't wait until you're ready. Start learning,
+build confidence and take your next step with SkillNest Academy.
+</p>
 
-            <p>
-                Get learning tips, new course updates and
-                career-focused resources delivered to your inbox.
-            </p>
+<a href="#courses" class="primary-btn">
+Explore Courses →
+</a>
 
-            <form class="newsletter-form"
-                  onsubmit="subscribeUser(event)">
-
-                <input
-                    type="email"
-                    id="email"
-                    placeholder="Enter your email address"
-                    required
-                >
-
-                <button type="submit">
-                    Subscribe
-                </button>
-
-            </form>
-
-        </div>
-
-    </div>
+</div>
 
 </section>
+
 
 
 <!-- =========================
@@ -1788,177 +1582,268 @@
 
 <footer>
 
-    <div class="container">
+<div class="container">
 
-        <div class="footer-grid">
-
-
-            <div class="footer-brand">
-
-                <h2>
-                    SkillNest Academy
-                </h2>
-
-                <p>
-                    Learn practical skills, build confidence
-                    and take the next step toward your future.
-                </p>
-
-                <p style="margin-top:18px;">
-                    🎓 Learn Today. Lead Tomorrow.
-                </p>
-
-            </div>
+<div class="footer-grid">
 
 
-            <div class="footer-column">
+<div class="footer-brand">
 
-                <h3>Explore</h3>
+<img src="logo.png" alt="SkillNest Academy Logo">
 
-                <a href="#courses">Courses</a>
-                <a href="#categories">Categories</a>
-                <a href="#career">Career Paths</a>
-                <a href="#why">Why SkillNest</a>
+<p>
+SkillNest Academy helps learners develop
+practical, career-focused skills through
+accessible online learning.
+</p>
 
-            </div>
-
-
-            <div class="footer-column">
-
-                <h3>Learn</h3>
-
-                <a href="#courses">Digital Marketing</a>
-                <a href="#courses">SEO</a>
-                <a href="#courses">Social Media</a>
-                <a href="#courses">Business</a>
-
-            </div>
+</div>
 
 
-            <div class="footer-column">
+<div>
 
-                <h3>Support</h3>
+<h3>Explore</h3>
 
-                <a href="#faq">FAQs</a>
-                <a href="#contact">Contact Us</a>
-                <a href="#home">Back to Top ↑</a>
+<ul class="footer-links">
 
-            </div>
+<li><a href="#courses">Courses</a></li>
+
+<li><a href="#career">Career Paths</a></li>
+
+<li><a href="#why">Why SkillNest</a></li>
+
+<li><a href="#courses">Categories</a></li>
+
+</ul>
+
+</div>
 
 
-        </div>
+<div>
+
+<h3>Learn</h3>
+
+<ul class="footer-links">
+
+<li><a href="#courses">Digital Marketing</a></li>
+
+<li><a href="#courses">SEO</a></li>
+
+<li><a href="#courses">Social Media</a></li>
+
+<li><a href="#courses">Business</a></li>
+
+</ul>
+
+</div>
 
 
-        <div class="footer-bottom">
+<div>
 
-            © 2026 SkillNest Academy. All Rights Reserved.
+<h3>Follow SkillNest</h3>
 
-        </div>
+<div class="socials">
 
-    </div>
+<!-- PLACEHOLDER SOCIAL LINKS -->
+
+<a href="#" class="social" aria-label="Instagram">
+◎
+</a>
+
+<a href="#" class="social" aria-label="LinkedIn">
+in
+</a>
+
+<a href="#" class="social" aria-label="YouTube">
+▶
+</a>
+
+<a href="#" class="social" aria-label="Facebook">
+f
+</a>
+
+</div>
+
+<br>
+
+<h3>Support</h3>
+
+<ul class="footer-links">
+
+<li><a href="#contact">Contact Us</a></li>
+
+<li><a href="#">Help Center</a></li>
+
+<li><a href="#">FAQs</a></li>
+
+</ul>
+
+</div>
+
+
+</div>
+
+
+<div class="footer-bottom">
+
+<span>
+© 2026 SkillNest Academy. All Rights Reserved.
+</span>
+
+<a href="#top" class="back-top">
+Back to Top ↑
+</a>
+
+</div>
+
+</div>
 
 </footer>
 
 
-<!-- =========================
-     JAVASCRIPT
-========================= -->
+
+<!-- BACK TO TOP -->
+
+<button id="topButton" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+↑
+</button>
+
+
 
 <script>
 
-    /* =========================
-       COURSE SEARCH
-    ========================= */
+/* =========================
+   COURSE SEARCH
+========================= */
 
-    const searchInput = document.getElementById("courseSearch");
+function searchCourses() {
 
-    const courses = document.querySelectorAll(".course-card");
+    const search = document
+        .getElementById("courseSearch")
+        .value
+        .toLowerCase()
+        .trim();
 
-    const noResults = document.getElementById("noResults");
+    const cards = document.querySelectorAll(".course-card");
 
+    cards.forEach(card => {
 
-    searchInput.addEventListener("input", function () {
+        const text = card.innerText.toLowerCase();
 
-        const searchTerm =
-            this.value.toLowerCase().trim();
+        if (text.includes(search)) {
+            card.style.display = "block";
+        } else {
+            card.style.display = "none";
+        }
 
-        let visibleCourses = 0;
+    });
 
-
-        courses.forEach(function(course) {
-
-            const courseName =
-                course.getAttribute("data-course");
-
-            const courseText =
-                course.innerText.toLowerCase();
-
-
-            if (
-                courseName.includes(searchTerm) ||
-                courseText.includes(searchTerm)
-            ) {
-
-                course.style.display = "block";
-
-                visibleCourses++;
-
-            } else {
-
-                course.style.display = "none";
-
-            }
-
-        });
+}
 
 
-        if (visibleCourses === 0 && searchTerm !== "") {
+/* SEARCH WHILE TYPING */
 
-            noResults.style.display = "block";
+document
+.getElementById("courseSearch")
+.addEventListener("input", searchCourses);
+
+
+
+/* =========================
+   COURSE FILTER
+========================= */
+
+function filterCourses(category, button) {
+
+    const cards = document.querySelectorAll(".course-card");
+
+    const buttons = document.querySelectorAll(".category");
+
+    buttons.forEach(btn => {
+        btn.classList.remove("active");
+    });
+
+    button.classList.add("active");
+
+
+    cards.forEach(card => {
+
+        if (
+            category === "all" ||
+            card.dataset.category === category
+        ) {
+
+            card.style.display = "block";
 
         } else {
 
-            noResults.style.display = "none";
+            card.style.display = "none";
 
         }
 
     });
 
+}
 
-    /* =========================
-       NEWSLETTER
-    ========================= */
 
-    function subscribeUser(event) {
 
-        event.preventDefault();
+/* =========================
+   FAQ
+========================= */
 
-        const email =
-            document.getElementById("email").value;
+const faqQuestions =
+document.querySelectorAll(".faq-question");
 
-        alert(
-            "Thank you for subscribing to SkillNest Academy! 🎓"
-        );
 
-        document.getElementById("email").value = "";
+faqQuestions.forEach(question => {
+
+    question.addEventListener("click", () => {
+
+        const faq =
+        question.parentElement;
+
+        faq.classList.toggle("open");
+
+        const icon =
+        question.querySelector(".faq-icon");
+
+        if (faq.classList.contains("open")) {
+
+            icon.textContent = "−";
+
+        } else {
+
+            icon.textContent = "+";
+
+        }
+
+    });
+
+});
+
+
+
+/* =========================
+   BACK TO TOP
+========================= */
+
+const topButton =
+document.getElementById("topButton");
+
+
+window.addEventListener("scroll", () => {
+
+    if (window.scrollY > 500) {
+
+        topButton.style.display = "block";
+
+    } else {
+
+        topButton.style.display = "none";
 
     }
 
-
-    /* =========================
-       SEARCH BUTTON
-    ========================= */
-
-    document.querySelector(".search-btn")
-        .addEventListener("click", function () {
-
-            document
-                .getElementById("courses")
-                .scrollIntoView({
-                    behavior: "smooth"
-                });
-
-        });
+});
 
 </script>
 
